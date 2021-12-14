@@ -1,0 +1,65 @@
+version: '3'
+
+services:
+  ui:
+    build:
+      dockerfile: Dockerfile.prod
+      context: ./ui
+    container_name: reg-sport-ui
+    restart: unless-stopped
+    command: serve -s dist -l 3000
+    networks:
+      - reg-sport-network
+  api:
+    build:
+      dockerfile: Dockerfile.prod
+      context: ./api
+    container_name: reg-sport-api
+    command: npm run start:prod
+    restart: unless-stopped
+    environment:
+      - PORT=3001
+      - POSTGRES_HOST=api_db
+      - POSTGRES_USER=busyl
+      - POSTGRES_PASSWORD=aszrqs123cgfsasas
+      - POSTGRES_DB=pgdb
+      - POSTGRES_PORT=5432
+    depends_on:
+      - api_db
+    networks:
+      - reg-sport-network
+
+  api_db:
+    image: postgres:14.1-alpine
+    container_name: reg-sport-api-db
+    restart: unless-stopped
+    volumes:
+      - postgres_api:/var/lib/postgresql
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: busyl
+      POSTGRES_PASSWORD: aszrqs123cgfsasas
+      POSTGRES_DB: pgdb
+    networks:
+      - reg-sport-network
+
+  nginx:
+    image: nginx:stable-alpine
+    container_name: reg-sport-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf.prod:/etc/nginx/conf.d/nginx.conf
+    depends_on:
+      - ui
+      - api
+    networks:
+      - reg-sport-network
+
+volumes:
+  postgres_api:
+
+networks:
+  reg-sport-network:
+    driver: bridge

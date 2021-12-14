@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  ui:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./ui
+    command: npm run serve
+    stdin_open: true
+    tty: true
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - ./ui/src:/usr/src/app/src
+
+  api:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./api
+    command: npm run start:dev
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./api/src:/usr/src/app/src
+
+
+  nginx:
+    volumes:
+      - ./nginx/nginx.conf.dev:/etc/nginx/conf.d/nginx.conf

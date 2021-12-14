@@ -1,0 +1,14 @@
+server {
+  listen 80;
+
+  server_name reg-sport.com;
+
+  location / {
+    proxy_pass http://ui:3000;
+  }
+
+  location /api {
+    rewrite ^/api/(.*) /$1 break;
+    proxy_pass http://api:3001;
+  }
+}
