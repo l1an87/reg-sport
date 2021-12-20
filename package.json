@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "docker-compose -f docker-compose.yml -f docker-compose.development.yml up --build",
+    "seed": "docker exec -it reg-sport-api npm run seed",
     "prod": "docker-compose up --build"
   },
   "dependencies": {

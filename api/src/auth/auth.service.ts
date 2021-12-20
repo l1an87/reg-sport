@@ -4,11 +4,13 @@ import {sign} from "jsonwebtoken";
 import {UserSanitize} from "../users/dto/user.sanitize";
 import {CreateUserInput} from "../users/dto/create-user.input";
 import {LoginInput} from "./dto/login.input";
+import {RolesService} from "../roles/roles.service";
 
 @Injectable()
 export class AuthService {
     constructor(
         private usersService: UsersService,
+        private rolesService: RolesService,
     ) {
     }
 
@@ -21,7 +23,13 @@ export class AuthService {
     }
 
     async createUser(dto: CreateUserInput) {
-        return await this.usersService.create(dto);
+        const role = await this.rolesService.findByCode('USER');
+        return await this.usersService.create({
+            ...dto,
+            roles: [
+                role,
+            ]
+        });
     }
 
     async singIn(dto: LoginInput) {

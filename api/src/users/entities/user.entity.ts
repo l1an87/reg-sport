@@ -24,7 +24,7 @@ export class User {
     })
     isBanned: boolean;
 
-    @ManyToMany(()=> Role)
+    @ManyToMany(() => Role)
     @JoinTable()
     roles: Role[];
 }

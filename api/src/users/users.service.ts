@@ -36,15 +36,9 @@ export class UsersService {
             throw new HttpException('Пользователь уже существует', HttpStatus.BAD_REQUEST);
         }
 
-        const role = await this.rolesService.findByCode('USER');
-
         const password = await bcrypt.hash(dto.password, 10);
 
-        const createdUser = this.userRepository.create({
-            email,
-            password,
-            roles: [role],
-        });
+        const createdUser = this.userRepository.create({...dto, password});
         await this.userRepository.save(createdUser);
 
         return this.sanitizeUser(createdUser);
