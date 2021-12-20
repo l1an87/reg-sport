@@ -31,7 +31,6 @@ export default {
       }
     },
     validRole(...roles) {
-      console.log(this.roles);
       return !!this.roles.find(i => roles.includes(i.code));
     },
   },
@@ -68,17 +67,17 @@ export default {
       </v-list-item>
       <v-divider/>
       <v-list>
-        <v-list-item to="/personal" v-if="validRole('ADMIN')">
+        <v-list-item to="/users" v-if="validRole('ADMIN')">
           <v-list-item-icon>
             <v-icon v-text="'mdi-account'"/>
           </v-list-item-icon>
           <v-list-item-content> Пользователи</v-list-item-content>
         </v-list-item>
-        <v-list-item to="/sport" v-if="validRole('ADMIN')">
+        <v-list-item to="/sport-type" v-if="validRole('ADMIN')">
           <v-list-item-icon>
             <v-icon v-text="'mdi-basketball'"/>
           </v-list-item-icon>
-          <v-list-item-content> Спорт</v-list-item-content>
+          <v-list-item-content> Виды спорта</v-list-item-content>
         </v-list-item>
         <v-list-item to="/team" v-if="validRole('ADMIN')">
           <v-list-item-icon>

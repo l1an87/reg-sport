@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { store } from '@/store';
+import { notifyAlert } from "./notifications";
 
 export default class api {
   static set token(value) {
@@ -40,6 +41,12 @@ export default class api {
       .then(api.then, api.catch);
   }
 
+  static patch(url, id, dt, props) {
+    return axios
+      .patch(`${url}/${id}`, dt, props)
+      .then(api.then, api.catch);
+  }
+
   static del(url, id, props) {
     return axios
       .delete(`${url}/${id}`, props)
@@ -47,7 +54,6 @@ export default class api {
   }
 
   static then(response) {
-    console.log(response);
     return response.data;
   }
 
@@ -56,6 +62,10 @@ export default class api {
       if (e.response.status === 401) {
         store.dispatch('singOut');
       }
+    }
+    if (e?.response?.data?.message) {
+      notifyAlert(e.response.data.message);
+      throw new Error(e.message);
     }
     throw e;
   }

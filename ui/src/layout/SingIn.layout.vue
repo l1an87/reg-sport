@@ -19,7 +19,6 @@ export default {
         await this.$store.dispatch("singIn", this.formData);
       } catch (e) {
         console.log(e);
-        this.error = e.message;
       }
       this.isLoading = false;
     },

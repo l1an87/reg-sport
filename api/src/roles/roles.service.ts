@@ -1,8 +1,8 @@
 import {HttpException, HttpStatus, Inject, Injectable} from '@nestjs/common';
 import {Repository} from "typeorm";
 import {Role} from "./entities/role.entity";
-import {CreateRoleInput} from "./dto/create-role.input";
-import {UpdateRoleInput} from "./dto/update-role.input";
+import {UpdateRoleDto} from "./dto/update-role.dto";
+import {CreateRoleDto} from "./dto/create-role.dto";
 
 @Injectable()
 export class RolesService {
@@ -12,10 +12,7 @@ export class RolesService {
     ) {
     }
 
-    async create(dto: CreateRoleInput): Promise<Role> {
-        if (!dto.code) {
-            throw new HttpException('Код не задан', HttpStatus.BAD_REQUEST);
-        }
+    async create(dto: CreateRoleDto): Promise<Role> {
         const {code} = dto;
 
         const role = await this.roleRepository.findOne({code});
@@ -29,17 +26,8 @@ export class RolesService {
         return await this.roleRepository.save(createdRole);
     }
 
-    async update(dto: UpdateRoleInput): Promise<Role> {
-        const {id} = dto;
-        if (!id) {
-            throw new HttpException('Id не задан', HttpStatus.BAD_REQUEST);
-        }
-
-        const role = await this.roleRepository.findOne(id);
-
-        if (!role) {
-            throw new HttpException('Роль не найдена', HttpStatus.BAD_REQUEST);
-        }
+    async update(id, dto: UpdateRoleDto): Promise<Role> {
+        const role = await this.findById(id);
 
         return await this.roleRepository.save({
             ...role,

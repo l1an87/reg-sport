@@ -3,11 +3,11 @@ import {Repository} from "typeorm";
 import * as bcrypt from 'bcrypt';
 
 import {User} from "./entities/user.entity";
-import {CreateUserInput} from "./dto/create-user.input";
-import {UserSanitize} from "./dto/user.sanitize";
-import {LoginInput} from "../auth/dto/login.input";
+import {CreateUserDto} from "./dto/create-user.dto";
+import {SanitizeUserDto} from "./dto/sanitize-user.dto";
+import {LoginDto} from "../auth/dto/login.dto";
 import {RolesService} from "../roles/roles.service";
-import {UpdateUserInput} from "./dto/update-user.input";
+import {UpdateUserDto} from "./dto/update-user.dto";
 
 @Injectable()
 export class UsersService {
@@ -20,14 +20,7 @@ export class UsersService {
     ) {
     }
 
-    async create(dto: CreateUserInput): Promise<UserSanitize> {
-        if (!dto.email) {
-            throw new HttpException('Email не задан', HttpStatus.BAD_REQUEST);
-        }
-        if (!dto.password) {
-            throw new HttpException('Пароль не задан', HttpStatus.BAD_REQUEST);
-        }
-
+    async create(dto: CreateUserDto): Promise<SanitizeUserDto> {
         const {email} = dto;
 
         const user = await this.userRepository.findOne({email});
@@ -36,7 +29,7 @@ export class UsersService {
             throw new HttpException('Пользователь уже существует', HttpStatus.BAD_REQUEST);
         }
 
-        const password = await bcrypt.hash(dto.password, 10);
+        const password = await this.hashPassword(dto.password);
 
         const createdUser = this.userRepository.create({...dto, password});
         await this.userRepository.save(createdUser);
@@ -44,22 +37,25 @@ export class UsersService {
         return this.sanitizeUser(createdUser);
     }
 
-    async update(dto: UpdateUserInput): Promise<UserSanitize> {
-        const {id} = dto;
-        if (!id) {
-            throw new HttpException('Id не задан', HttpStatus.BAD_REQUEST);
-        }
-
+    async update(id: number, dto: UpdateUserDto): Promise<SanitizeUserDto> {
         const user = await this.userRepository.findOne(id);
 
         if (!user) {
             throw new HttpException('Пользователь не найден', HttpStatus.BAD_REQUEST);
         }
 
-        const updatedUser = await this.userRepository.save({
+        const {password, ...noPassDto} = dto
+
+        const updatedDto = {
             ...user,
-            ...dto,
-        });
+            ...noPassDto,
+        }
+
+        if (password) {
+            updatedDto.password = await this.hashPassword(password);
+        }
+
+        const updatedUser = await this.userRepository.save(updatedDto);
 
         return this.sanitizeUser(updatedUser);
     }
@@ -78,9 +74,9 @@ export class UsersService {
         return await this.userRepository.remove(user);
     }
 
-    async findAll(): Promise<UserSanitize[]> {
-        const users = await this.userRepository.find();
-
+    async findAll(): Promise<SanitizeUserDto[]> {
+        const {relations} = this;
+        const users = await this.userRepository.find({relations});
         return users.map(this.sanitizeUser);
     }
 
@@ -91,7 +87,7 @@ export class UsersService {
         return this.sanitizeUser(user);
     }
 
-    async findById(id: number): Promise<UserSanitize> {
+    async findById(id: number): Promise<SanitizeUserDto> {
         if (!id) {
             throw new HttpException('Id не задан', HttpStatus.BAD_REQUEST);
         }
@@ -106,7 +102,7 @@ export class UsersService {
         return this.sanitizeUser(user);
     }
 
-    async findByLogin(dto: LoginInput) {
+    async findByLogin(dto: LoginDto) {
         const {email, password} = dto;
         const {relations} = this;
 
@@ -122,8 +118,12 @@ export class UsersService {
         }
     }
 
-    sanitizeUser(user: User): UserSanitize {
+    sanitizeUser(user: User): SanitizeUserDto {
         const {password, ...sanitize} = user;
         return sanitize;
+    }
+
+    async hashPassword(pass) {
+        return await bcrypt.hash(pass, 10);
     }
 }

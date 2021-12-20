@@ -1,6 +1,6 @@
 import {Role} from "../../roles/entities/role.entity";
 
-export class UserSanitize {
+export class SanitizeUserDto {
     id: number;
     email: string;
     isBanned: boolean;

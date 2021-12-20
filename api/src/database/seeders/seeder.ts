@@ -36,6 +36,7 @@ export class Seeder {
         await this.usersService.create({
             email: 'l1an@bk.ru',
             password: 'cgjhn#01955',
+            isBanned: false,
             roles: [role],
         });
     }
