@@ -11,15 +11,6 @@ const router = new VueRouter({
       // redirect: '/task',
     },
     {
-      path: '/sport',
-      component: () => import('./modules/Sport/Sport.vue'),
-    },
-    {
-      path: '/sport/:id',
-      component: () => import('./modules/Sport/Sport.vue'),
-      props: true,
-    },
-    {
       path: '/users',
       component: () => import('./modules/users/users.vue'),
       children: [

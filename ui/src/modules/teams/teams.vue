@@ -11,17 +11,16 @@ export default {
       this.$router.push('/teams');
     },
   },
+  mounted() {
+    this.$store.dispatch('setTitle', 'Команды');
+  },
 };
 </script>
 <template>
   <div>
     <v-card>
-      <v-card-title class="pb-0">
-        Команды
-        <v-spacer/>
-        <v-btn color="primary" @click="handlerAdd">Создать</v-btn>
-      </v-card-title>
       <router-view
+          @add="handlerAdd"
           @update="handlerClose"
           @create="handlerClose"
           @cancel="handlerClose"

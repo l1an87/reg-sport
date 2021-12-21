@@ -89,28 +89,30 @@ export default {
 };
 </script>
 <template>
-    <v-card-text>
-      <v-data-table
-          :headers="headers"
-          :items="items"
-          :search="search"
-          :sort-by="sortBy"
-          :sort-desc="sortDesc"
-      >
-        <template v-slot:top v-if="!hideSearch">
-          <v-text-field
-              v-model="search"
-              label="Поиск"
-              class="mx-4"
-          ></v-text-field>
-        </template>
-        <template v-slot:item.actions="{ item }">
-          <v-btn class="mr-2" @click="$emit('edit', item.id)" icon small>
-            <v-icon small> mdi-pencil</v-icon>
-          </v-btn>
-          <v-icon small @click="handlerRemove(item.id)"> mdi-delete</v-icon>
-        </template>
-      </v-data-table>
-      <Loader v-model="isLoading"></Loader>
-    </v-card-text>
+  <div>
+    <v-card-title class="pb-0">
+      <v-text-field
+          v-if="!hideSearch"
+          v-model="search"
+          label="Поиск"
+          class="mb-4"
+      ></v-text-field>
+      <v-btn color="primary" @click="$emit('add')">Создать</v-btn>
+    </v-card-title>
+    <v-data-table
+        :headers="headers"
+        :items="items"
+        :search="search"
+        :sort-by="sortBy"
+        :sort-desc="sortDesc"
+    >
+      <template v-slot:item.actions="{ item }">
+        <v-btn class="mr-2" @click="$emit('edit', item.id)" icon small>
+          <v-icon small> mdi-pencil</v-icon>
+        </v-btn>
+        <v-icon small @click="handlerRemove(item.id)"> mdi-delete</v-icon>
+      </template>
+    </v-data-table>
+    <Loader v-model="isLoading"></Loader>
+  </div>
 </template>

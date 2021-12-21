@@ -11,17 +11,16 @@ export default {
       this.$router.push('/users');
     },
   },
+  mounted() {
+    this.$store.dispatch('setTitle', 'Пользователи');
+  },
 };
 </script>
 <template>
   <div>
     <v-card>
-      <v-card-title class="pb-0">
-        Пользователи
-        <v-spacer/>
-        <v-btn color="primary" @click="handlerAdd">Создать</v-btn>
-      </v-card-title>
       <router-view
+          @add="handlerAdd"
           @update="handlerClose"
           @create="handlerClose"
           @cancel="handlerClose"

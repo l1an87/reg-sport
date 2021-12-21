@@ -139,9 +139,9 @@ export default {
                 required
             ></v-text-field>
           </v-col>
-          <v-col cols="4">
+          <v-col cols="4" v-if="!!id">
             <v-file-input
-                label="medicalCertificateName"
+                label="Командный мед. допуск"
                 :value="{name: form.medicalCertificateName}"
                 :loading="isLoadingFile"
                 @change="handlerSaveFile"
