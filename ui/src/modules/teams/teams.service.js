@@ -21,4 +21,10 @@ export class TeamsService {
   static update(id, data) {
     return api.patch('/teams', id, data);
   }
+
+  static addMedicalCertificate(id, file) {
+    const data = new FormData();
+    data.set('file', file);
+    return api.post(`/teams/add-medical-certificate/${id}`, data);
+  }
 }

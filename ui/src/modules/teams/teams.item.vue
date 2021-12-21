@@ -14,10 +14,13 @@ export default {
       name: '',
       email: '',
       password: '',
+      userId: 0,
+      medicalCertificateId: 0,
+      medicalCertificateName: '',
     },
-    userId: 0,
     isValidate: true,
     isLoading: false,
+    isLoadingFile: false,
   }),
   methods: {
     setForm(data = {}) {
@@ -25,7 +28,9 @@ export default {
       form.name = data.name || '';
       form.email = data.user?.email || '';
       form.password = '';
-      this.userId = data.user?.id || 0;
+      form.userId = data.user?.id || 0;
+      form.medicalCertificateId = data.medicalCertificateId || '';
+      form.medicalCertificateName = data.medicalCertificateName || '';
     },
     handlerGet() {
       if (!+this.id) {
@@ -68,6 +73,14 @@ export default {
     handlerCancel() {
       this.$emit('cancel');
     },
+    handlerSaveFile(file) {
+      if (!file.size) return;
+      this.isLoadingFile = true;
+      TeamsService.addMedicalCertificate(this.id, file).then(this.setForm)
+        .finally(() => {
+          this.isLoadingFile = false;
+        });
+    },
   },
   watch: {
     id() {
@@ -109,23 +122,31 @@ export default {
             >
               <v-btn
                   slot="append"
-                  v-if="userId"
+                  v-if="form.userId"
                   icon
-                  :to="`/users/${userId}`"
+                  :to="`/users/${form.userId}`"
                   small
               >
                 <v-icon v-text="'mdi-pencil'" small/>
               </v-btn>
             </v-text-field>
           </v-col>
-          <v-col cols="4">
+          <v-col cols="4" v-if="!id">
             <v-text-field
                 label="Пароль"
-                v-if="!id"
                 v-model="form.password"
                 :rules="[ v => !!v || 'Введите пароль']"
                 required
             ></v-text-field>
+          </v-col>
+          <v-col cols="4">
+            <v-file-input
+                label="medicalCertificateName"
+                :value="{name: form.medicalCertificateName}"
+                :loading="isLoadingFile"
+                @change="handlerSaveFile"
+                :clearable="false"
+            ></v-file-input>
           </v-col>
         </v-row>
       </v-form>

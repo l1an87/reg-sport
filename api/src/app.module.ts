@@ -6,6 +6,7 @@ import { AuthModule } from './auth/auth.module';
 import { RolesModule } from './roles/roles.module';
 import { SportTypeModule } from './sport-type/sport-type.module';
 import { TeamsModule } from './teams/teams.module';
+import { FilesModule } from './files/files.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { TeamsModule } from './teams/teams.module';
     RolesModule,
     SportTypeModule,
     TeamsModule,
+    FilesModule,
   ],
   controllers: [],
   providers: [

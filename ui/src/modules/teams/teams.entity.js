@@ -4,13 +4,15 @@ export class TeamsEntity {
   id;
   name;
   user;
-  file;
+  fileId;
+  fileName;
 
   constructor(data = {}) {
     this.id = data.id || null;
     this.name = data.name || '';
     this.user = data.user ? new UsersEntity(data.user) : null;
-    this.file = data.file || '';
+    this.medicalCertificateId = data.medicalCertificateId || 0;
+    this.medicalCertificateName = data.medicalCertificateName || '';
   }
 
   get value() {
@@ -23,5 +25,9 @@ export class TeamsEntity {
 
   get userName() {
     return this.user?.text || '';
+  }
+
+  get medicalCertificateUrl() {
+    return `/api/files/${this.medicalCertificateId}/${this.medicalCertificateName}`;
   }
 }

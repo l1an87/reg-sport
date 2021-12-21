@@ -1,15 +1,52 @@
-import {Body, Controller, Delete, Get, Param, Patch, Post, UseGuards} from '@nestjs/common';
+import {
+    Body,
+    Controller,
+    Delete,
+    Get, HttpException, HttpStatus,
+    Param,
+    Patch,
+    Post, Request,
+    UploadedFile,
+    UseGuards,
+    UseInterceptors
+} from '@nestjs/common';
 import {AuthGuard} from "@nestjs/passport";
 import {Roles} from "../auth/roles-auth.decorator";
 import {TeamsService} from "./teams.service";
 import {CreateTeamDto} from "./dto/create-team.dto";
 import {UpdateTeamDto} from "./dto/update-team.dto";
+import {FileInterceptor} from "@nestjs/platform-express";
 
 @Controller('teams')
 export class TeamsController {
     constructor(
         private teamsService: TeamsService,
     ) {
+    }
+
+    @UseInterceptors(FileInterceptor('file'))
+    @Post('add-medical-certificate/:id')
+    @Roles('ADMIN', 'TEAM')
+    async uploadFile(
+        @Param('id') id: string,
+        @UploadedFile() file: Express.Multer.File,
+        @Request() req: any,
+    ) {
+        if (req.userSession.isRoleAdmin) {
+            return this.teamsService.addMedicalCertificate(+id, file);
+        }
+        if (!req.userSession.teamId) {
+            throw new HttpException('Нет доступа', HttpStatus.FORBIDDEN);
+        }
+        return this.teamsService.addMedicalCertificate(+req.userSession.teamId, file);
+    }
+
+
+    @Get('test')
+    @UseGuards(AuthGuard("jwt"))
+    @Roles('ADMIN')
+    async test(@Request() req: any) {
+        return this.teamsService.findAll();
     }
 
     @Get()
@@ -22,8 +59,17 @@ export class TeamsController {
     @Get(':id')
     @UseGuards(AuthGuard("jwt"))
     @Roles('ADMIN', 'TEAM')
-    async findOne(@Param('id') id: string) {
-        return this.teamsService.findById(+id);
+    async findOne(
+        @Request() req: any,
+        @Param('id') id: string,
+    ) {
+        if (req.userSession.isRoleAdmin) {
+            return this.teamsService.findById(+id);
+        }
+        if (!req.userSession.teamId) {
+            throw new HttpException('Нет доступа', HttpStatus.FORBIDDEN);
+        }
+        return this.teamsService.findById(+req.userSession.teamId);
     }
 
     @Post()

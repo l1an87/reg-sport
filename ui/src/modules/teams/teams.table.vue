@@ -16,6 +16,7 @@ export default {
     hideName: Boolean,
     hideUser: Boolean,
     hideFile: Boolean,
+    hideMedicalCertificate: Boolean,
     hideActions: Boolean,
     hideSearch: Boolean,
   },
@@ -44,10 +45,10 @@ export default {
           value: "userName",
         });
       }
-      if (!this.hideFile) {
+      if (!this.hideMedicalCertificate) {
         headers.push({
-          text: "Файл",
-          value: "file",
+          text: "Командное страхование",
+          value: "medicalCertificateName",
         });
       }
       if (!this.hideActions) {
@@ -110,6 +111,11 @@ export default {
               label="Поиск"
               class="mx-4"
           ></v-text-field>
+        </template>
+        <template v-slot:item.medicalCertificateName="{ item }">
+          <v-btn text v-if="item.medicalCertificateId" small :to="item.medicalCertificateUrl" target="_blank">
+            {{item.medicalCertificateName}}
+          </v-btn>
         </template>
         <template v-slot:item.actions="{ item }">
           <v-btn class="mr-2" @click="$emit('edit', item.id)" icon small>

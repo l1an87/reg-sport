@@ -6,12 +6,14 @@ import {Connection} from "typeorm";
 import {Team} from "./entities/team.entity";
 import {UsersModule} from "../users/users.module";
 import {RolesModule} from "../roles/roles.module";
+import {FilesModule} from "../files/files.module";
 
 @Module({
     imports: [
         DatabaseModule,
         UsersModule,
         RolesModule,
+        FilesModule,
     ],
     controllers: [TeamsController],
     providers: [

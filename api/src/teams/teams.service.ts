@@ -5,6 +5,7 @@ import {CreateTeamDto} from "./dto/create-team.dto";
 import {RolesService} from "../roles/roles.service";
 import {UsersService} from "../users/users.service";
 import {UpdateTeamDto} from "./dto/update-team.dto";
+import {FilesService} from "../files/files.service";
 
 @Injectable()
 export class TeamsService {
@@ -15,6 +16,7 @@ export class TeamsService {
         private teamRepository: Repository<Team>,
         private usersService: UsersService,
         private rolesService: RolesService,
+        private filesService: FilesService,
     ) {
     }
 
@@ -55,13 +57,12 @@ export class TeamsService {
             throw new HttpException('Id не задан', HttpStatus.BAD_REQUEST);
         }
 
-        const user = await this.teamRepository.findOne(id);
-
-        if (!user) {
-            throw new HttpException('Команда не найдена', HttpStatus.BAD_REQUEST);
+        const team = await this.teamRepository.findOne(id);
+        if (team.medicalCertificateId) {
+            await this.filesService.remove(team.medicalCertificateId);
         }
 
-        return await this.teamRepository.remove(user);
+        return await this.teamRepository.remove(team);
     }
 
     async findAll() {
@@ -92,5 +93,18 @@ export class TeamsService {
         }
 
         return team;
+    }
+
+    async addMedicalCertificate(id: number, file: Express.Multer.File) {
+        const team = await this.findNotEmpty(id);
+        let currentFile;
+        if (team.medicalCertificateId) {
+            currentFile = await this.filesService.update(team.medicalCertificateId, file)
+        } else {
+            currentFile = await this.filesService.create(file)
+        }
+        team.medicalCertificateId = currentFile.id;
+        team.medicalCertificateName = currentFile.originalname;
+        return await this.teamRepository.save(team);
     }
 }
