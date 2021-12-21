@@ -1,5 +1,5 @@
 import {
-    Body,
+    Body, ClassSerializerInterceptor,
     Controller,
     Delete,
     Get, HttpException, HttpStatus,
@@ -18,6 +18,9 @@ import {UpdateTeamDto} from "./dto/update-team.dto";
 import {FileInterceptor} from "@nestjs/platform-express";
 
 @Controller('teams')
+@UseGuards(AuthGuard("jwt"))
+@UseInterceptors(ClassSerializerInterceptor)
+@Roles('ADMIN')
 export class TeamsController {
     constructor(
         private teamsService: TeamsService,
@@ -43,21 +46,17 @@ export class TeamsController {
 
 
     @Get('test')
-    @UseGuards(AuthGuard("jwt"))
-    @Roles('ADMIN')
     async test(@Request() req: any) {
         return this.teamsService.findAll();
     }
 
     @Get()
-    @UseGuards(AuthGuard("jwt"))
-    @Roles('ADMIN')
+    @Roles()
     async findAll() {
         return this.teamsService.findAll();
     }
 
     @Get(':id')
-    @UseGuards(AuthGuard("jwt"))
     @Roles('ADMIN', 'TEAM')
     async findOne(
         @Request() req: any,
@@ -73,15 +72,11 @@ export class TeamsController {
     }
 
     @Post()
-    @UseGuards(AuthGuard("jwt"))
-    @Roles('ADMIN')
     create(@Body() dto: CreateTeamDto) {
         return this.teamsService.create(dto);
     }
 
     @Patch(':id')
-    @UseGuards(AuthGuard("jwt"))
-    @Roles('ADMIN')
     async update(
         @Param('id') id: string,
         @Body() dto: UpdateTeamDto,
@@ -90,8 +85,6 @@ export class TeamsController {
     }
 
     @Delete(':id')
-    @UseGuards(AuthGuard("jwt"))
-    @Roles('ADMIN')
     async remove(@Param('id') id: string) {
         await this.teamsService.remove(+id);
         return {

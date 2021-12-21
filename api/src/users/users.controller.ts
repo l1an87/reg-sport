@@ -1,4 +1,15 @@
-import {Body, Controller, Delete, Get, Param, Patch, Post, UseGuards} from '@nestjs/common';
+import {
+    Body,
+    ClassSerializerInterceptor,
+    Controller,
+    Delete,
+    Get,
+    Param,
+    Patch,
+    Post,
+    UseGuards,
+    UseInterceptors
+} from '@nestjs/common';
 import {AuthGuard} from "@nestjs/passport";
 import {UsersService} from "./users.service";
 import {CreateUserDto} from "./dto/create-user.dto";
@@ -6,6 +17,9 @@ import {Roles} from "../auth/roles-auth.decorator";
 import {UpdateUserDto} from "./dto/update-user.dto";
 
 @Controller('users')
+@UseGuards(AuthGuard("jwt"))
+@UseInterceptors(ClassSerializerInterceptor)
+@Roles('ADMIN')
 export class UsersController {
     constructor(
         private usersService: UsersService,
@@ -13,29 +27,21 @@ export class UsersController {
     }
 
     @Get()
-    @UseGuards(AuthGuard("jwt"))
-    @Roles('ADMIN')
     async findAll() {
         return this.usersService.findAll();
     }
 
     @Get(':id')
-    @UseGuards(AuthGuard("jwt"))
-    @Roles('ADMIN')
     async findOne(@Param('id') id: string) {
         return this.usersService.findById(+id);
     }
 
     @Post()
-    @UseGuards(AuthGuard("jwt"))
-    @Roles('ADMIN')
     create(@Body() dto: CreateUserDto) {
         return this.usersService.create(dto);
     }
 
     @Patch(':id')
-    @UseGuards(AuthGuard("jwt"))
-    @Roles('ADMIN')
     async update(
         @Param('id') id: string,
         @Body() dto: UpdateUserDto,
@@ -44,8 +50,6 @@ export class UsersController {
     }
 
     @Delete(':id')
-    @UseGuards(AuthGuard("jwt"))
-    @Roles('ADMIN')
     async remove(@Param('id') id: string) {
         await this.usersService.remove(+id);
         return {

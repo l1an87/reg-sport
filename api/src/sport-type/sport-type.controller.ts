@@ -6,6 +6,8 @@ import {UpdateSportTypeDto} from "./dto/update-sport-type.dto";
 import {CreateSportTypeDto} from "./dto/create-sport-type.dto";
 
 @Controller('sport-type')
+@UseGuards(AuthGuard("jwt"))
+@Roles('ADMIN')
 export class SportTypeController {
     constructor(
         private sportTypeService: SportTypeService,
@@ -13,29 +15,22 @@ export class SportTypeController {
     }
 
     @Post()
-    @UseGuards(AuthGuard("jwt"))
-    @Roles('ADMIN')
     create(@Body() dto: CreateSportTypeDto) {
         return this.sportTypeService.create(dto);
     }
 
     @Get()
-    @UseGuards(AuthGuard("jwt"))
-    @Roles('ADMIN')
+    @Roles()
     async findAll() {
         return this.sportTypeService.findAll();
     }
 
     @Get(':id')
-    @UseGuards(AuthGuard("jwt"))
-    @Roles('ADMIN')
     async findOne(@Param('id') id: string) {
         return this.sportTypeService.findById(+id);
     }
 
     @Patch(':id')
-    @UseGuards(AuthGuard("jwt"))
-    @Roles('ADMIN')
     async update(
         @Param('id') id: string,
         @Body() dto: UpdateSportTypeDto,
@@ -44,8 +39,6 @@ export class SportTypeController {
     }
 
     @Delete(':id')
-    @UseGuards(AuthGuard("jwt"))
-    @Roles('ADMIN')
     async remove(@Param('id') id: string) {
         await this.sportTypeService.remove(+id);
         return {

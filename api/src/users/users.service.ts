@@ -22,8 +22,7 @@ export class UsersService {
     async create(dto: CreateUserDto): Promise<User> {
         await this.findNotEmail(dto.email);
         let createdUser = await this.beforeSave(this.userRepository.create(dto), dto.password);
-        createdUser = await this.userRepository.save(createdUser);
-        return this.beforeToEnd(createdUser);
+        return await this.userRepository.save(createdUser);
     }
 
     async update(id: number, dto: UpdateUserDto): Promise<User> {
@@ -33,7 +32,7 @@ export class UsersService {
             ...dto,
         }, dto.password);
 
-        return this.beforeToEnd(await this.userRepository.save(updatedUser));
+        return await this.userRepository.save(updatedUser);
     }
 
     async remove(id: number) {
@@ -43,15 +42,13 @@ export class UsersService {
 
     async findAll(): Promise<User[]> {
         const {relations} = this;
-        const users = await this.userRepository.find({relations});
-        return users.map(this.beforeToEnd);
+        return await this.userRepository.find({relations});
     }
 
     async findByPayload(payload: any) {
         const {email} = payload;
         const {relations} = this;
-        const user = await this.userRepository.findOne({email}, {relations});
-        return this.beforeToEnd(user);
+        return await this.userRepository.findOne({email}, {relations});
     }
 
     async findById(id: number): Promise<User> {
@@ -61,9 +58,7 @@ export class UsersService {
 
         const {relations} = this;
 
-        const user = await this.userRepository.findOne(id, {relations});
-
-        return this.beforeToEnd(user);
+        return await this.userRepository.findOne(id, {relations});
     }
 
     async findByLogin(dto: LoginDto) {
@@ -76,7 +71,7 @@ export class UsersService {
             throw new HttpException('Не верный логин или пароль', HttpStatus.BAD_REQUEST);
         }
         if (await bcrypt.compare(password, user.password)) {
-            return this.beforeToEnd(user)
+            return user
         } else {
             throw new HttpException('Не верный логин или пароль', HttpStatus.BAD_REQUEST);
         }
@@ -101,12 +96,6 @@ export class UsersService {
             throw new HttpException('Пользователь не найден', HttpStatus.BAD_REQUEST);
         }
 
-        return user;
-    }
-
-
-    beforeToEnd(user: User): User {
-        user.password = '';
         return user;
     }
 

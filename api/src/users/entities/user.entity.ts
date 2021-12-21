@@ -1,6 +1,7 @@
 import {Column, Entity, JoinColumn, JoinTable, ManyToMany, OneToOne, PrimaryGeneratedColumn} from "typeorm";
 import {Role} from "../../roles/entities/role.entity";
 import {Team} from "../../teams/entities/team.entity";
+import {Exclude} from "class-transformer";
 
 
 @Entity()
@@ -18,6 +19,7 @@ export class User {
     @Column({
         type: "varchar",
     })
+    @Exclude({toPlainOnly: true})
     password: string;
 
     @Column({
