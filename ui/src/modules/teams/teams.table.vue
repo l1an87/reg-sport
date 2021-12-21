@@ -1,5 +1,5 @@
 <script>
-import { UsersService } from "./users.service";
+import { TeamsService } from "./teams.service";
 import Loader from '../../components/Loader.vue';
 
 export default {
@@ -13,10 +13,9 @@ export default {
       default: true,
     },
     hideId: Boolean,
-    hideEmail: Boolean,
-    hideRoles: Boolean,
-    hideTeam: Boolean,
-    hideBanned: Boolean,
+    hideName: Boolean,
+    hideUser: Boolean,
+    hideFile: Boolean,
     hideActions: Boolean,
     hideSearch: Boolean,
   },
@@ -33,28 +32,22 @@ export default {
           width: 80,
         });
       }
-      if (!this.hideEmail) {
+      if (!this.hideName) {
         headers.push({
-          text: "Email",
-          value: "email",
+          text: "Название",
+          value: "name",
         });
       }
-      if (!this.hideRoles) {
+      if (!this.hideUser) {
         headers.push({
-          text: "Роли",
-          value: "rolesName",
+          text: "Пользователь",
+          value: "userName",
         });
       }
-      if (!this.hideTeam) {
+      if (!this.hideFile) {
         headers.push({
-          text: "Команда",
-          value: "teamName",
-        });
-      }
-      if (!this.hideBanned) {
-        headers.push({
-          text: "Заблокирован",
-          value: "isBanned",
+          text: "Файл",
+          value: "file",
         });
       }
       if (!this.hideActions) {
@@ -77,7 +70,7 @@ export default {
     handlerGet() {
       this.isLoading = true;
       this.items = [];
-      UsersService
+      TeamsService
         .findAll()
         .then(data => {
           this.items = data || [];
@@ -87,7 +80,7 @@ export default {
         });
     },
     handlerRemove(id) {
-      UsersService
+      TeamsService
         .remove(id)
         .then(() => {
           this.handlerGet();
@@ -117,9 +110,6 @@ export default {
               label="Поиск"
               class="mx-4"
           ></v-text-field>
-        </template>
-        <template v-slot:item.isBanned="{ item }">
-          {{ item.isBanned ? 'Да': 'Нет' }}
         </template>
         <template v-slot:item.actions="{ item }">
           <v-btn class="mr-2" @click="$emit('edit', item.id)" icon small>

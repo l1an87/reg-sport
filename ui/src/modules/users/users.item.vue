@@ -6,6 +6,8 @@ import { UsersService } from './users.service';
 export default {
   props: {
     id: [String, Number],
+    hideForm: Boolean,
+    hideActions: Boolean,
   },
   components: {
     Loader,
@@ -14,6 +16,8 @@ export default {
     form: {
       email: '',
       password: '',
+      teamName: '',
+      teamId: 0,
       isBanned: false,
       roles: [],
     },
@@ -26,6 +30,8 @@ export default {
       const { form } = this;
       form.email = data.email || '';
       form.password = data.password || '';
+      form.teamName = data.team?.name || '';
+      form.teamId = data.team?.id || '';
       form.isBanned = data.isBanned || false;
       form.roles = data.roles || [];
     },
@@ -92,7 +98,7 @@ export default {
   <div>
     <v-card-text>
       <v-form
-          v-if="form"
+          v-if="form && !hideForm"
           :value="isValidate"
           @input="$emit('input', $event)"
           ref="form"
@@ -107,6 +113,7 @@ export default {
         <v-text-field
             label="Пароль"
             v-model="form.password"
+            :rules="[ v => !!v || 'Введите пароль']"
             required
         ></v-text-field>
         <v-select
@@ -116,13 +123,31 @@ export default {
             multiple
             return-object
         />
+        <v-text-field
+            label="Команда"
+            v-model="form.teamName"
+            readonly
+            class="v-input--is-disabled"
+        >
+          <v-btn
+              slot="append"
+              v-if="form.teamId"
+              icon
+              :to="`/teams/${form.teamId}`"
+              small
+          >
+            <v-icon v-text="'mdi-pencil'" small/>
+          </v-btn>
+        </v-text-field>
         <v-checkbox
             v-model="form.isBanned"
             label="Заблокировать"
         />
       </v-form>
     </v-card-text>
-    <v-card-actions>
+    <v-card-actions
+        v-if="!hideActions"
+    >
       <v-spacer/>
       <v-btn @click="handlerCancel">Отмена</v-btn>
       <v-btn v-if="!id" @click="handlerCreate" color="primary">Создать</v-btn>

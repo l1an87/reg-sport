@@ -1,10 +1,10 @@
 import {Injectable} from '@nestjs/common';
 import {UsersService} from "../users/users.service";
 import {sign} from "jsonwebtoken";
-import {SanitizeUserDto} from "../users/dto/sanitize-user.dto";
 import {CreateUserDto} from "../users/dto/create-user.dto";
 import {LoginDto} from "./dto/login.dto";
 import {RolesService} from "../roles/roles.service";
+import {User} from "../users/entities/user.entity";
 
 @Injectable()
 export class AuthService {
@@ -18,8 +18,10 @@ export class AuthService {
         return await this.usersService.findByPayload(payload);
     }
 
-    async signPayload(user: SanitizeUserDto) {
-        return sign(user, process.env.SECRET_KEY, {expiresIn: '7d'});
+    async signPayload(user: User) {
+        return sign({
+            ...user,
+        }, process.env.SECRET_KEY, {expiresIn: '7d'});
     }
 
     async createUser(dto: CreateUserDto) {

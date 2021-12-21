@@ -10,6 +10,7 @@ export class UsersEntity {
     this.id = data.id || null;
     this.email = data.email || '';
     this.isBanned = data.isBanned || false;
+    this.team = data.team || null;
     this.roles = (data.roles || []).map(i => new RolesEntity(i));
   }
 
@@ -25,5 +26,9 @@ export class UsersEntity {
     return this.roles
       .map(i => i.description)
       .join('; ');
+  }
+
+  get teamName() {
+    return this.team?.name || '';
   }
 }

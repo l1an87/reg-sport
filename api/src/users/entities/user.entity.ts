@@ -1,5 +1,6 @@
-import {Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, JoinColumn, JoinTable, ManyToMany, OneToOne, PrimaryGeneratedColumn} from "typeorm";
 import {Role} from "../../roles/entities/role.entity";
+import {Team} from "../../teams/entities/team.entity";
 
 
 @Entity()
@@ -27,4 +28,8 @@ export class User {
     @ManyToMany(() => Role)
     @JoinTable()
     roles: Role[];
+
+    @OneToOne(() => Team, team => team.user, {onDelete: 'CASCADE'})
+    @JoinColumn()
+    team?: Team;
 }

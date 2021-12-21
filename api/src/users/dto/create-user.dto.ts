@@ -1,4 +1,6 @@
 import {IsEmail, IsOptional, IsString, MinLength} from "class-validator";
+import {Team} from "../../teams/entities/team.entity";
+import {Role} from "../../roles/entities/role.entity";
 
 export class CreateUserDto {
     @IsEmail({}, {message: 'Email: не корректный email'})
@@ -10,8 +12,11 @@ export class CreateUserDto {
     readonly password: string;
 
     @IsOptional()
-    readonly roles: any[];
+    readonly roles?: Role[];
 
     @IsOptional()
-    readonly isBanned: boolean;
+    readonly team?: Team;
+
+    @IsOptional()
+    readonly isBanned?: boolean;
 }

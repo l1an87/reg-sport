@@ -23,7 +23,7 @@ export class Seeder {
         });
         await this.rolesService.create({
             code: 'TEAM',
-            description: 'Администратор команды',
+            description: 'Менеджер',
         });
         await this.rolesService.create({
             code: 'USER',

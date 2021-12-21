@@ -59,6 +59,25 @@ const router = new VueRouter({
         },
       ],
     },
+    {
+      path: '/teams',
+      component: () => import('./modules/teams/teams.vue'),
+      children: [
+        {
+          path: '/',
+          component: () => import('./modules/teams/teams.table.vue'),
+        },
+        {
+          path: 'add',
+          component: () => import('./modules/teams/teams.item.vue'),
+        },
+        {
+          path: ':id',
+          component: () => import('./modules/teams/teams.item.vue'),
+          props: true,
+        },
+      ],
+    },
   ],
 });
 

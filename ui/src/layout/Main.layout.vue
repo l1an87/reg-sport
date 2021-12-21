@@ -79,11 +79,11 @@ export default {
           </v-list-item-icon>
           <v-list-item-content> Виды спорта</v-list-item-content>
         </v-list-item>
-        <v-list-item to="/team" v-if="validRole('ADMIN')">
+        <v-list-item to="/teams" v-if="validRole('ADMIN')">
           <v-list-item-icon>
             <v-icon v-text="'mdi-account-group'"/>
           </v-list-item-icon>
-          <v-list-item-content> Компании</v-list-item-content>
+          <v-list-item-content> Команды</v-list-item-content>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
