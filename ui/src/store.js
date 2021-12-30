@@ -9,6 +9,9 @@ export const store = new Vuex.Store({
     title: 'Анкета спорт',
     isInit: false,
     isSingIn: false,
+    isAdmin: false,
+    isTeam: false,
+    isSport: false,
     token: '',
     user: {
       id: 0,
@@ -34,6 +37,9 @@ export const store = new Vuex.Store({
       state.user.id = data.id || 0;
       state.user.email = data.email || '';
       state.roles = data.roles || [];
+      state.isAdmin = !!state.roles.find(i => i.code === 'ADMIN');
+      state.isTeam = !!state.roles.find(i => i.code === 'TEAM');
+      state.isSport = !!state.roles.find(i => i.code === 'SPORT');
       state.team.id = data.team?.id || 0;
       state.team.name = data.team?.name || '';
     },
@@ -44,7 +50,6 @@ export const store = new Vuex.Store({
   actions: {
     async init({ state, commit, dispatch }) {
       commit('setToken', window.localStorage.getItem('token'));
-      console.log('state.token', state.token);
       if (!state.token) {
         commit('setInit');
         return state;

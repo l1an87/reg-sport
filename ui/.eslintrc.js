@@ -15,6 +15,7 @@ module.exports = {
     'arrow-parens': 'off',
     'lines-between-class-members': 'off',
     'class-methods-use-this': 'off',
+    'indent': 'off',
     'import/no-cycle': 'off',
     'import/no-unresolved': 'off',
     'import/order': 'off',

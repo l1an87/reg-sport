@@ -30,7 +30,7 @@ export class TeamsController {
     @UseInterceptors(FileInterceptor('file'))
     @Post('add-medical-certificate/:id')
     @Roles('ADMIN', 'TEAM')
-    async uploadFile(
+    async addMedicalCertificate(
         @Param('id') id: string,
         @UploadedFile() file: Express.Multer.File,
         @Request() req: any,
@@ -42,12 +42,6 @@ export class TeamsController {
             throw new HttpException('Нет доступа', HttpStatus.FORBIDDEN);
         }
         return this.teamsService.addMedicalCertificate(+req.userSession.teamId, file);
-    }
-
-
-    @Get('test')
-    async test(@Request() req: any) {
-        return this.teamsService.findAll();
     }
 
     @Get()
@@ -87,8 +81,5 @@ export class TeamsController {
     @Delete(':id')
     async remove(@Param('id') id: string) {
         await this.teamsService.remove(+id);
-        return {
-            success: true,
-        };
     }
 }

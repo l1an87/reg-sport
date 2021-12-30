@@ -23,7 +23,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
         }
         if (user.isBanned) {
             return done(
-                new HttpException('Вы заблокированы', HttpStatus.UNAUTHORIZED),
+                new HttpException('Доступ запрещен', HttpStatus.UNAUTHORIZED),
                 false,
             );
         }

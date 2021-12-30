@@ -33,43 +33,44 @@ export default {
         <v-divider></v-divider>
         <v-card-text>
           <v-form
-            v-model="isValidate"
-            ref="form"
-            lazy-validation
-            @submit="handlerSingIn"
-            @keyup.enter="handlerSingIn"
+              v-model="isValidate"
+              ref="form"
+              lazy-validation
+              @submit="handlerSingIn"
+              @keyup.enter="handlerSingIn"
           >
             <v-text-field
-              label="Email"
-              v-model="formData.email"
-              :rules="[(v) => !!v || 'Введите email']"
-              required
-              @keyup.enter="handlerSingIn"
+                label="Email"
+                v-model="formData.email"
+                :rules="[(v) => !!v || 'Введите email']"
+                required
+                @keyup.enter="handlerSingIn"
             />
             <v-text-field
-              label="Пароль"
-              type="password"
-              v-model="formData.password"
-              :rules="[(v) => !!v || 'Введите пароль']"
-              @keyup.enter="handlerSingIn"
-              required
+                label="Пароль"
+                type="password"
+                v-model="formData.password"
+                :rules="[(v) => !!v || 'Введите пароль']"
+                @keyup.enter="handlerSingIn"
+                required
             />
           </v-form>
           <v-alert
-            class="mt-1"
-            v-if="!!error"
-            outlined
-            type="error"
-            v-text="error"
-            dense
+              class="mt-1"
+              v-if="!!error"
+              outlined
+              type="error"
+              v-text="error"
+              dense
           />
           <v-btn
-            @click="handlerSingIn"
-            block
-            color="primary"
-            class="mt-3"
-            :disabled="!isValidate"
-            >Войти</v-btn
+              @click="handlerSingIn"
+              block
+              color="primary"
+              class="mt-3"
+              :disabled="!isValidate"
+          >Войти
+          </v-btn
           >
           <v-overlay :value="isLoading">
             <v-progress-circular indeterminate size="64"></v-progress-circular>
@@ -79,3 +80,11 @@ export default {
     </v-dialog>
   </v-app>
 </template>
+
+<style>
+@media (min-width: 960px) {
+  .container {
+    max-width: 100%;
+  }
+}
+</style>

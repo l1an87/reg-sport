@@ -53,11 +53,7 @@ export class TeamsService {
     }
 
     async remove(id: number) {
-        if (!id) {
-            throw new HttpException('Id не задан', HttpStatus.BAD_REQUEST);
-        }
-
-        const team = await this.teamRepository.findOne(id);
+        const team = await this.findNotEmpty(id);
         if (team.medicalCertificateId) {
             await this.filesService.remove(team.medicalCertificateId);
         }
@@ -99,9 +95,9 @@ export class TeamsService {
         const team = await this.findNotEmpty(id);
         let currentFile;
         if (team.medicalCertificateId) {
-            currentFile = await this.filesService.update(team.medicalCertificateId, file)
+            currentFile = await this.filesService.update(team.medicalCertificateId, file);
         } else {
-            currentFile = await this.filesService.create(file)
+            currentFile = await this.filesService.create(file);
         }
         team.medicalCertificateId = currentFile.id;
         team.medicalCertificateName = currentFile.originalname;

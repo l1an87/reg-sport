@@ -26,6 +26,10 @@ export class Seeder {
             description: 'Менеджер',
         });
         await this.rolesService.create({
+            code: 'SPORT',
+            description: 'Судья',
+        });
+        await this.rolesService.create({
             code: 'USER',
             description: 'Пользователь',
         });

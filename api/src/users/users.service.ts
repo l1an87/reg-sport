@@ -37,7 +37,16 @@ export class UsersService {
 
     async remove(id: number) {
         const user = await this.findNotEmpty(id);
+        if (user.team) {
+            throw new HttpException('Нельзя удалить пользователя привязанного к команде', HttpStatus.BAD_REQUEST);
+        }
         return await this.userRepository.remove(user);
+    }
+
+    async ban(id: number) {
+        const user = await this.findNotEmpty(id);
+        user.isBanned = !user.isBanned;
+        return await this.userRepository.save(user);
     }
 
     async findAll(): Promise<User[]> {

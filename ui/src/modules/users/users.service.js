@@ -10,6 +10,10 @@ export class UsersService {
     return api.get(`/users/${id}`).then(i => new UsersEntity(i));
   }
 
+  static ban(id) {
+    return api.get(`/users/ban/${id}`).then(i => new UsersEntity(i));
+  }
+
   static remove(id) {
     return api.del('/users', id);
   }

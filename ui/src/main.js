@@ -9,7 +9,7 @@ import Layout from './layout/Layout.vue';
 Vue.config.productionTip = false;
 Vue.use(VuetifyInstall);
 Vue.use(filters);
-const vuetify = VuetifyInit({ primary: '#00a03b' });
+const vuetify = VuetifyInit({ primary: '#001275' });
 Vue.use(VuetifyTiptapInstall, { vuetify });
 
 window.app = new Vue({

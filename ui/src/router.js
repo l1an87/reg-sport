@@ -8,7 +8,7 @@ const router = new VueRouter({
   routes: [
     {
       path: '/',
-      // redirect: '/task',
+      component: () => import('./redirect.vue'),
     },
     {
       path: '/users',
@@ -68,6 +68,33 @@ const router = new VueRouter({
           props: true,
         },
       ],
+    },
+    {
+      path: '/members',
+      component: () => import('./modules/members/members.vue'),
+      // children: [
+      //   {
+      //     path: '/',
+      //     component: () => import('./modules/members/members.table.vue'),
+      //   },
+      //   {
+      //     path: 'add',
+      //     component: () => import('./modules/members/members.item.vue'),
+      //   },
+      //   {
+      //     path: ':id',
+      //     component: () => import('./modules/members/members.item.vue'),
+      //     props: true,
+      //   },
+      // ],
+    },
+    {
+      path: '/my-team',
+      component: () => import('./modules/my-team/my-team.vue'),
+    },
+    {
+      path: '/member-to-sport',
+      component: () => import('./modules/member-to-sport/member-to-sport.vue'),
     },
   ],
 });

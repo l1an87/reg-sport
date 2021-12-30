@@ -19,6 +19,15 @@ export default {
     roles() {
       return this.$store.state.roles || [];
     },
+    isAdmin() {
+      return this.$store.state.isAdmin;
+    },
+    isSport() {
+      return this.$store.state.isSport;
+    },
+    isTeam() {
+      return this.$store.state.isTeam;
+    },
     teamName() {
       return this.$store.state.team.name;
     },
@@ -58,7 +67,7 @@ export default {
     <v-navigation-drawer app v-model="driver">
       <v-list-item>
         <v-list-item-avatar color="primary">
-          <v-icon v-text="'mdi-account'"/>
+          <v-icon dark v-text="'mdi-account'"/>
         </v-list-item-avatar>
         <v-list-item-content>
           <v-list-item-title class="title" v-text="roleName"/>
@@ -67,23 +76,41 @@ export default {
       </v-list-item>
       <v-divider/>
       <v-list>
-        <v-list-item to="/users" v-if="validRole('ADMIN')">
+        <v-list-item to="/users" v-if="isAdmin">
           <v-list-item-icon>
             <v-icon v-text="'mdi-account'"/>
           </v-list-item-icon>
           <v-list-item-content> Пользователи</v-list-item-content>
         </v-list-item>
-        <v-list-item to="/sport-type" v-if="validRole('ADMIN')">
+        <v-list-item to="/sport-type" v-if="isAdmin">
           <v-list-item-icon>
             <v-icon v-text="'mdi-basketball'"/>
           </v-list-item-icon>
           <v-list-item-content> Виды спорта</v-list-item-content>
         </v-list-item>
-        <v-list-item to="/teams" v-if="validRole('ADMIN')">
+        <v-list-item to="/teams" v-if="isAdmin">
           <v-list-item-icon>
             <v-icon v-text="'mdi-account-group'"/>
           </v-list-item-icon>
           <v-list-item-content> Команды</v-list-item-content>
+        </v-list-item>
+        <v-list-item to="/members" v-if="isAdmin">
+          <v-list-item-icon>
+            <v-icon v-text="'mdi-account'"/>
+          </v-list-item-icon>
+          <v-list-item-content> Участники</v-list-item-content>
+        </v-list-item>
+        <v-list-item to="/member-to-sport" v-if="isSport">
+          <v-list-item-icon>
+            <v-icon v-text="'mdi-account'"/>
+          </v-list-item-icon>
+          <v-list-item-content> Участники</v-list-item-content>
+        </v-list-item>
+        <v-list-item to="/my-team" v-if="isTeam">
+          <v-list-item-icon>
+            <v-icon v-text="'mdi-account-group'"/>
+          </v-list-item-icon>
+          <v-list-item-content>Моя Команда</v-list-item-content>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>

@@ -95,7 +95,7 @@ export default {
           v-if="!hideSearch"
           v-model="search"
           label="Поиск"
-          class="mb-4"
+          class="mr-4"
       ></v-text-field>
       <v-btn color="primary" @click="$emit('add')">Создать</v-btn>
     </v-card-title>

@@ -31,6 +31,11 @@ export class UsersController {
         return this.usersService.findAll();
     }
 
+    @Get('ban/:id')
+    async ban(@Param('id') id: string) {
+        return this.usersService.ban(+id);
+    }
+
     @Get(':id')
     async findOne(@Param('id') id: string) {
         return this.usersService.findById(+id);

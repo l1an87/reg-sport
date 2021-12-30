@@ -19,6 +19,7 @@ export default {
     hideBanned: Boolean,
     hideActions: Boolean,
     hideSearch: Boolean,
+    disabledBanned: Boolean,
   },
   components: {
     Loader,
@@ -74,6 +75,9 @@ export default {
     search: '',
   }),
   methods: {
+    isMy(id) {
+      return this.$store.state.user.id === +id;
+    },
     handlerGet() {
       this.isLoading = true;
       this.items = [];
@@ -86,7 +90,20 @@ export default {
           this.isLoading = false;
         });
     },
+    handlerBan(item) {
+      if (this.isMy(item.id)) return;
+      this.isLoading = true;
+      UsersService
+        .ban(item.id)
+        .then(data => {
+          item.isBanned = !!data.isBanned;
+        })
+        .finally(() => {
+          this.isLoading = false;
+        });
+    },
     handlerRemove(id) {
+      if (this.isMy(id)) return;
       UsersService
         .remove(id)
         .then(() => {
@@ -121,7 +138,9 @@ export default {
         :sort-desc="sortDesc"
     >
       <template v-slot:item.isBanned="{ item }">
-        {{ item.isBanned ? 'Да' : 'Нет' }}
+        <v-btn text small @click="handlerBan(item)" :disabled="disabledBanned">
+          {{ item.isBanned ? 'Да' : 'Нет' }}
+        </v-btn>
       </template>
       <template v-slot:item.actions="{ item }">
         <v-btn class="mr-2" @click="$emit('edit', item.id)" icon small>

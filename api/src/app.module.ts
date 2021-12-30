@@ -7,6 +7,7 @@ import { RolesModule } from './roles/roles.module';
 import { SportTypeModule } from './sport-type/sport-type.module';
 import { TeamsModule } from './teams/teams.module';
 import { FilesModule } from './files/files.module';
+import { MembersModule } from './members/members.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { FilesModule } from './files/files.module';
     SportTypeModule,
     TeamsModule,
     FilesModule,
+    MembersModule,
   ],
   controllers: [],
   providers: [

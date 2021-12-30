@@ -12,6 +12,10 @@ export default {
     },
   },
   mounted() {
+    if (!this.$store.state.isAdmin) {
+      this.$router.push('/');
+      return;
+    }
     this.$store.dispatch('setTitle', 'Виды спорта');
   },
 };

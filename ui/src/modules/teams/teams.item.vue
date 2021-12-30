@@ -1,13 +1,16 @@
 <script>
 import Loader from '../../components/Loader.vue';
 import { TeamsService } from './teams.service';
+import MembersTable from '../members/table-edit/table-edit.vue';
 
 export default {
   props: {
     id: [String, Number],
+    hideAction: Boolean,
   },
   components: {
     Loader,
+    MembersTable,
   },
   data: () => ({
     form: {
@@ -17,6 +20,7 @@ export default {
       userId: 0,
       medicalCertificateId: 0,
       medicalCertificateName: '',
+      medicalCertificateUrl: '',
     },
     isValidate: true,
     isLoading: false,
@@ -31,6 +35,7 @@ export default {
       form.userId = data.user?.id || 0;
       form.medicalCertificateId = data.medicalCertificateId || '';
       form.medicalCertificateName = data.medicalCertificateName || '';
+      form.medicalCertificateUrl = data.medicalCertificateUrl || '';
     },
     handlerGet() {
       if (!+this.id) {
@@ -109,6 +114,7 @@ export default {
                 v-model="form.name"
                 :rules="[ v => !!v || 'Введите название']"
                 required
+                :disabled="!$store.state.isAdmin"
             ></v-text-field>
           </v-col>
           <v-col cols="4">
@@ -126,6 +132,7 @@ export default {
                   icon
                   :to="`/users/${form.userId}`"
                   small
+                  :disabled="!$store.state.isAdmin"
               >
                 <v-icon v-text="'mdi-pencil'" small/>
               </v-btn>
@@ -146,12 +153,24 @@ export default {
                 :loading="isLoadingFile"
                 @change="handlerSaveFile"
                 :clearable="false"
-            ></v-file-input>
+            >
+              <v-btn
+                  slot="append"
+                  v-if="form.userId"
+                  icon
+                  :to="form.medicalCertificateUrl"
+                  small
+                  target="_blank"
+              >
+                <v-icon v-text="'mdi-download'" small/>
+              </v-btn>
+            </v-file-input>
           </v-col>
         </v-row>
       </v-form>
     </v-card-text>
-    <v-card-actions>
+    <MembersTable v-if="id" :team-id="id" style="border-bottom: 1px solid #ddd" class="mb-4"/>
+    <v-card-actions v-if="!hideAction">
       <v-spacer/>
       <v-btn @click="handlerCancel">Отмена</v-btn>
       <v-btn v-if="!id" @click="handlerCreate" color="primary">Создать</v-btn>

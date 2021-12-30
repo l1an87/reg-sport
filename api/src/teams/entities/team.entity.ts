@@ -1,5 +1,6 @@
-import {Column, Entity, OneToOne, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn} from "typeorm";
 import {User} from "../../users/entities/user.entity";
+import {Member} from "../../members/entities/member.entity";
 
 @Entity()
 export class Team {
@@ -14,6 +15,9 @@ export class Team {
     @OneToOne(() => User, user => user.team, {cascade: ['insert'], onDelete: 'CASCADE'})
     user?: User;
 
+    @OneToMany(() => Member, member => member.team, {cascade: ['insert'], onDelete: 'CASCADE'})
+    members?: Member[];
+
     @Column({
         default: 0,
     })
@@ -22,5 +26,5 @@ export class Team {
     @Column({
         default: '',
     })
-    medicalCertificateName?: String;
+    medicalCertificateName?: string;
 }
