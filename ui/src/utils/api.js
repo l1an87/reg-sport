@@ -69,6 +69,23 @@ export default class api {
     }
     throw e;
   }
+
+  static file(url, name, props = {}) {
+    return axios
+      .get(url, {
+        ...props,
+        responseType: 'blob',
+      })
+      .then((response) => {
+        const linkUrl = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement('a');
+        link.href = linkUrl;
+        link.setAttribute('download', name);
+        document.body.appendChild(link);
+        link.click();
+        return api.then(response);
+      }, api.catch);
+  }
 }
 
 api.baseURL = '/api';

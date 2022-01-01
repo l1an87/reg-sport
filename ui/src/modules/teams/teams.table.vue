@@ -115,8 +115,8 @@ export default {
         :sort-desc="sortDesc"
     >
       <template v-slot:item.medicalCertificateName="{ item }">
-        <v-btn text v-if="item.medicalCertificateId" small :to="item.medicalCertificateUrl" target="_blank">
-          {{ item.medicalCertificateName }}
+        <v-btn v-if="item.medicalCertificateId" small :to="item.medicalCertificateUrl" target="_blank">
+          скачать
         </v-btn>
       </template>
       <template v-slot:item.actions="{ item }">

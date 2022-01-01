@@ -44,10 +44,10 @@ export default {
       }
       this.isLoading = true;
       TeamsService.findById(+this.id)
-        .then(this.setForm)
-        .finally(() => {
-          this.isLoading = false;
-        });
+          .then(this.setForm)
+          .finally(() => {
+            this.isLoading = false;
+          });
     },
     handlerCreate() {
       if (!this.isValidate || !this.$refs.form.validate() || this.isLoading) {
@@ -55,12 +55,12 @@ export default {
       }
       this.isLoading = true;
       TeamsService.create(this.form)
-        .then((data) => {
-          this.$emit('create', data);
-        })
-        .finally(() => {
-          this.isLoading = false;
-        });
+          .then((data) => {
+            this.$emit('create', data);
+          })
+          .finally(() => {
+            this.isLoading = false;
+          });
     },
     handlerUpdate() {
       if (!this.isValidate || !this.$refs.form.validate() || this.isLoading) {
@@ -68,12 +68,12 @@ export default {
       }
       this.isLoading = true;
       TeamsService.update(+this.id, this.form)
-        .then((data) => {
-          this.$emit('update', data);
-        })
-        .finally(() => {
-          this.isLoading = false;
-        });
+          .then((data) => {
+            this.$emit('update', data);
+          })
+          .finally(() => {
+            this.isLoading = false;
+          });
     },
     handlerCancel() {
       this.$emit('cancel');
@@ -81,10 +81,14 @@ export default {
     handlerSaveFile(file) {
       if (!file.size) return;
       this.isLoadingFile = true;
-      TeamsService.addMedicalCertificate(this.id, file).then(this.setForm)
-        .finally(() => {
-          this.isLoadingFile = false;
-        });
+      TeamsService.addMedicalCertificate(this.id, file)
+          .then(this.setForm)
+          .finally(() => {
+            this.isLoadingFile = false;
+          });
+    },
+    openReport() {
+      TeamsService.report(this.id, `${this.form.name}.xlsx`);
     },
   },
   watch: {
@@ -146,7 +150,7 @@ export default {
                 required
             ></v-text-field>
           </v-col>
-          <v-col cols="4" v-if="!!id">
+          <v-col cols="2" v-if="!!id">
             <v-file-input
                 label="Командный мед. допуск"
                 :value="{name: form.medicalCertificateName}"
@@ -165,6 +169,16 @@ export default {
                 <v-icon v-text="'mdi-download'" small/>
               </v-btn>
             </v-file-input>
+          </v-col>
+          <v-col cols="2" v-if="!!id">
+            <v-btn
+                block
+                color="primary"
+                class="mt-3"
+                v-text="'Распечатать'"
+                @click="openReport"
+                target="_blank"
+            />
           </v-col>
         </v-row>
       </v-form>

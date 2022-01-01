@@ -8,6 +8,7 @@ import { SportTypeModule } from './sport-type/sport-type.module';
 import { TeamsModule } from './teams/teams.module';
 import { FilesModule } from './files/files.module';
 import { MembersModule } from './members/members.module';
+import { ReportsModule } from './reports/reports.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { MembersModule } from './members/members.module';
     TeamsModule,
     FilesModule,
     MembersModule,
+    ReportsModule,
   ],
   controllers: [],
   providers: [

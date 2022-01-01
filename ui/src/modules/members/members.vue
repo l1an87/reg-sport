@@ -137,6 +137,9 @@ export default {
             item.admitted = !item.admitted;
           });
     },
+    openReport() {
+      MembersService.report(`Участники.xlsx`);
+    },
   },
   mounted() {
     if (!this.$store.state.isAdmin) {
@@ -156,7 +159,7 @@ export default {
           <v-col cols="6">
             <v-text-field label="Фильтр" v-model="form.search"></v-text-field>
           </v-col>
-          <v-col cols="3">
+          <v-col cols="2">
             <v-select
                 label="Команда"
                 v-model="form.team"
@@ -167,7 +170,7 @@ export default {
                 clearable
             />
           </v-col>
-          <v-col cols="3">
+          <v-col cols="2">
             <v-select
                 label="Вид спорта"
                 v-model="form.sportType"
@@ -176,6 +179,16 @@ export default {
                 item-value="id"
                 return-object
                 clearable
+            />
+          </v-col>
+          <v-col cols="2">
+            <v-btn
+                block
+                color="primary"
+                class="mt-3"
+                v-text="'Распечатать'"
+                @click="openReport"
+                target="_blank"
             />
           </v-col>
         </v-row>

@@ -12,7 +12,7 @@ export class UpdateMemberDto {
     @IsString({message: 'Фамилия: должено быть строкой'})
     readonly lastName?: string;
 
-    @IsString({message: 'Фамилия: должено быть строкой'})
+    @IsString({message: 'Отчество: должено быть строкой'})
     readonly middleName?: string;
 
     @IsEnum(MemberGender, {message: 'Пол: не верное значение'})

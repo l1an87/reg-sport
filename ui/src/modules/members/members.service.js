@@ -40,4 +40,8 @@ export class MembersService {
     data.set('file', file);
     return api.post(`/members/add-photo/${id}`, data);
   }
+
+  static report(name) {
+    return api.file(`/reports/sports`, name);
+  }
 }

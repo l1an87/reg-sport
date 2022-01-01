@@ -27,4 +27,8 @@ export class TeamsService {
     data.set('file', file);
     return api.post(`/teams/add-medical-certificate/${id}`, data);
   }
+
+  static report(id, name) {
+    return api.file(`/reports/team/${id}`, name);
+  }
 }
