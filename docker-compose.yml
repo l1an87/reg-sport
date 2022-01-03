@@ -49,6 +49,7 @@ services:
     container_name: reg-sport-nginx
     ports:
       - "80:80"
+      - "443:443"
     volumes:
       - ./nginx/nginx.conf.prod:/etc/nginx/conf.d/nginx.conf
     depends_on:
