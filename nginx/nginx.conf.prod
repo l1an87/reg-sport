@@ -1,7 +1,7 @@
 server {
   listen 80;
 
-  server_name reg.busy-l.ru;
+  server_name busy-l.ru;
   client_max_body_size 20M;
 
 
