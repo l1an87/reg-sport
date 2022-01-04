@@ -32,4 +32,17 @@ export class ReportsController {
         res.type('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
         return new StreamableFile(buffer);
     }
+
+    @Get('members-sports')
+    @Roles('ADMIN')
+    async getReportMembersSport(
+        @Response({passthrough: true}) res,
+        @Param('id') id: string
+    ) {
+        const wb = await this.reportsService.getReportMembersSport();
+        const buffer = await wb.writeToBuffer();
+        res.header('Content-disposition', 'attachment; filename=asdsad.xlsx');
+        res.type('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        return new StreamableFile(buffer);
+    }
 }

@@ -1,4 +1,4 @@
-export const isoToString = function (date) {
+export const isoToString = (date) => {
   if (!date) {
     return '';
   }
@@ -14,13 +14,17 @@ export const isoToString = function (date) {
   return `${dd}.${mm}.${yyyy}`;
 };
 
-export const stringToIso = function (date) {
+export const stringToIso = (date) => {
   if (!date) {
     return '';
   }
   const [dd, mm, yyyy] = date
     .replaceAll(',', '.')
     .split('.');
+
+  if (!yyyy) {
+    return '';
+  }
 
   return new Date(+yyyy, mm - 1, +dd, 8).toISOString();
 };

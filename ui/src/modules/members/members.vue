@@ -66,6 +66,18 @@ export default {
     },
     teams: [],
     sportTypes: [],
+    reportList: [
+      {
+        text: 'Допущенные',
+        value: 'sports',
+        callback: () => MembersService.report(`Участники.xlsx`),
+      },
+      {
+        text: 'Все участники',
+        value: 'members-sports',
+        callback: () => MembersService.membersReport(`Все участники.xlsx`),
+      },
+    ],
   }),
   computed: {
     sortingItems() {
@@ -137,9 +149,6 @@ export default {
             item.admitted = !item.admitted;
           });
     },
-    openReport() {
-      MembersService.report(`Участники.xlsx`);
-    },
   },
   mounted() {
     if (!this.$store.state.isAdmin) {
@@ -182,14 +191,13 @@ export default {
             />
           </v-col>
           <v-col cols="2">
-            <v-btn
-                block
-                color="primary"
-                class="mt-3"
-                v-text="'Распечатать'"
-                @click="openReport"
-                target="_blank"
-            />
+            <v-overflow-btn
+                class="mt-0"
+                :items="reportList"
+                label="Распечатать"
+                segmented
+                hide-details
+            ></v-overflow-btn>
           </v-col>
         </v-row>
       </v-card-text>

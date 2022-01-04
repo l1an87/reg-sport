@@ -4,6 +4,7 @@ import {TeamsService} from "../teams/teams.service";
 import {ReportTeam} from "./services/ReportTeam";
 import {SportTypeService} from "../sport-type/sport-type.service";
 import {ReportSport} from "./services/ReportSport";
+import {ReportSportAll} from "./services/ReportSportAll";
 
 @Injectable()
 export class ReportsService {
@@ -26,6 +27,14 @@ export class ReportsService {
         const sports = await this.sportTypeService.findAll();
         const members = await this.membersService.findAll();
         const report = new ReportSport(sports, members.filter(i => i.admitted));
+
+        return await report.generate();
+    }
+
+    async getReportMembersSport() {
+        const sports = await this.sportTypeService.findAll();
+        const members = await this.membersService.findAll();
+        const report = new ReportSportAll(sports, members);
 
         return await report.generate();
     }

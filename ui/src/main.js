@@ -3,6 +3,7 @@ import { VuetifyInstall, VuetifyTiptapInstall, VuetifyInit } from '@/plugins/vue
 import { store } from '@/store';
 import router from '@/router';
 import filters from '@/filters';
+import { VueMaskDirective } from 'v-mask';
 
 import Layout from './layout/Layout.vue';
 
@@ -11,6 +12,7 @@ Vue.use(VuetifyInstall);
 Vue.use(filters);
 const vuetify = VuetifyInit({ primary: '#001275' });
 Vue.use(VuetifyTiptapInstall, { vuetify });
+Vue.directive('mask', VueMaskDirective);
 
 window.app = new Vue({
   vuetify,

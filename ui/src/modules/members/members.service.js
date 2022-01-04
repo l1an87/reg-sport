@@ -44,4 +44,8 @@ export class MembersService {
   static report(name) {
     return api.file(`/reports/sports`, name);
   }
+
+  static membersReport(name) {
+    return api.file(`/reports/members-sports`, name);
+  }
 }

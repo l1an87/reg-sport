@@ -113,8 +113,8 @@ export default {
         <v-text-field
             label="Пароль"
             v-model="form.password"
-            :rules="[ v => !!v || 'Введите пароль']"
-            required
+            :rules="[ v => !!id || !!v || 'Введите пароль']"
+            :required="!id"
         ></v-text-field>
         <v-select
             label="Роли"

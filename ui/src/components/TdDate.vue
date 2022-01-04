@@ -17,6 +17,7 @@ export default {
     },
     handlerChange(val) {
       const response = stringToIso(val);
+      this.val = response;
       this.$emit('input', response);
       this.$emit('change', response);
     },
@@ -35,7 +36,8 @@ export default {
   <td class="td-date">
     <div class="td-text__wrap" v-show="!hide">
       <v-text-field
-          :value="val"
+          v-model="val"
+          v-mask="'##.##.####'"
           @change="handlerChange"
           :disabled="disabled"
           class="pt-0 mt-0"
