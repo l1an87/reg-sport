@@ -26,6 +26,11 @@ export default {
     isLoading: false,
     isLoadingFile: false,
   }),
+  computed: {
+    disabled() {
+      return !this.$store.state.isEdit;
+    },
+  },
   methods: {
     setForm(data = {}) {
       const { form } = this;
@@ -157,6 +162,7 @@ export default {
                 :loading="isLoadingFile"
                 @change="handlerSaveFile"
                 :clearable="false"
+                :disabled="disabled"
             >
               <v-btn
                   slot="append"

@@ -62,8 +62,13 @@ export class MembersController {
     }
 
     @Get()
-    @Roles('ADMIN', 'SPORT')
-    async findAll() {
+    @Roles('ADMIN', 'TEAM', 'SPORT')
+    async findAll(
+        @Request() req: any,
+    ) {
+        if (req.userSession.isRoleTeam) {
+            return this.memberService.findTeamAll(+req.userSession.teamId);
+        }
         return this.memberService.findAll();
     }
 

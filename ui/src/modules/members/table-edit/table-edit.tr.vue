@@ -30,10 +30,16 @@ export default {
     isLoading: false,
   }),
   computed: {
+    disabledAll() {
+      return !this.$store.state.isEdit;
+    },
     isEdit() {
       return (this.form?.id || 0) === this.edit;
     },
     isDisabled() {
+      if (this.disabledAll) {
+        return true;
+      }
       if (this.edit) {
         return !this.isEdit;
       }
@@ -197,7 +203,7 @@ export default {
         :disabled="!$store.state.isAdmin"
         @change="handlerAdmitted"
     />
-    <td v-if="isEdit">
+    <td v-if="isEdit && !disabledAll">
       <v-btn class="mx-1" @click="handlerSave" icon small title="Сохранить">
         <v-icon color="primary"> mdi-content-save</v-icon>
       </v-btn>
@@ -205,7 +211,7 @@ export default {
         <v-icon color="primary"> mdi-close</v-icon>
       </v-btn>
     </td>
-    <td v-if="!isEdit">
+    <td v-if="!isEdit && !disabledAll">
       <v-btn class="mx-1" @click="handlerEdit" icon small :disabled="!!edit" title="Редактировать">
         <v-icon color="primary"> mdi-pencil</v-icon>
       </v-btn>

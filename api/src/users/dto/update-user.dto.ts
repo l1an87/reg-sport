@@ -19,5 +19,8 @@ export class UpdateUserDto {
     readonly team?: Team;
 
     @IsOptional()
-    readonly isBanned: boolean;
+    readonly isBanned?: boolean;
+
+    @IsOptional()
+    readonly isEdit?: boolean;
 }

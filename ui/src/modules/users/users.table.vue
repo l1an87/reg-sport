@@ -17,6 +17,7 @@ export default {
     hideRoles: Boolean,
     hideTeam: Boolean,
     hideBanned: Boolean,
+    hideEdit: Boolean,
     hideActions: Boolean,
     hideSearch: Boolean,
     disabledBanned: Boolean,
@@ -56,6 +57,12 @@ export default {
         headers.push({
           text: "Заблокирован",
           value: "isBanned",
+        });
+      }
+      if (!this.hideEdit) {
+        headers.push({
+          text: "Редактирование",
+          value: "isEdit",
         });
       }
       if (!this.hideActions) {
@@ -102,6 +109,18 @@ export default {
           this.isLoading = false;
         });
     },
+    handlerEdit(item) {
+      if (this.isMy(item.id)) return;
+      this.isLoading = true;
+      UsersService
+        .edit(item.id)
+        .then(data => {
+          item.isEdit = !!data.isEdit;
+        })
+        .finally(() => {
+          this.isLoading = false;
+        });
+    },
     handlerRemove(id) {
       if (this.isMy(id)) return;
       UsersService
@@ -140,6 +159,11 @@ export default {
       <template v-slot:item.isBanned="{ item }">
         <v-btn text small @click="handlerBan(item)" :disabled="disabledBanned">
           {{ item.isBanned ? 'Да' : 'Нет' }}
+        </v-btn>
+      </template>
+      <template v-slot:item.isEdit="{ item }">
+        <v-btn text small @click="handlerEdit(item)" :disabled="disabledBanned">
+          {{ item.isEdit ? 'Да' : 'Нет' }}
         </v-btn>
       </template>
       <template v-slot:item.actions="{ item }">

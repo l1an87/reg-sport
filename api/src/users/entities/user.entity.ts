@@ -27,6 +27,11 @@ export class User {
     })
     isBanned: boolean;
 
+    @Column({
+        default: true,
+    })
+    isEdit: boolean;
+
     @ManyToMany(() => Role)
     @JoinTable()
     roles: Role[];

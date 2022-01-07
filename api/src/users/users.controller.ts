@@ -36,6 +36,11 @@ export class UsersController {
         return this.usersService.ban(+id);
     }
 
+    @Get('edit/:id')
+    async edit(@Param('id') id: string) {
+        return this.usersService.edit(+id);
+    }
+
     @Get(':id')
     async findOne(@Param('id') id: string) {
         return this.usersService.findById(+id);

@@ -4,12 +4,14 @@ export class UsersEntity {
   id;
   email;
   isBanned;
+  isEdit;
   roles;
 
   constructor(data = {}) {
     this.id = data.id || null;
     this.email = data.email || '';
     this.isBanned = data.isBanned || false;
+    this.isEdit = data.isEdit || false;
     this.team = data.team || null;
     this.roles = (data.roles || []).map(i => new RolesEntity(i));
   }

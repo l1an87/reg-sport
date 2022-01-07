@@ -12,6 +12,7 @@ export const store = new Vuex.Store({
     isAdmin: false,
     isTeam: false,
     isSport: false,
+    isEdit: false,
     token: '',
     user: {
       id: 0,
@@ -42,6 +43,7 @@ export const store = new Vuex.Store({
       state.isSport = !!state.roles.find(i => i.code === 'SPORT');
       state.team.id = data.team?.id || 0;
       state.team.name = data.team?.name || '';
+      state.isEdit = data.isEdit || false;
     },
     setTitle(state, value = '') {
       state.title = value;

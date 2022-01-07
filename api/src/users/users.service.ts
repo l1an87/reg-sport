@@ -49,6 +49,12 @@ export class UsersService {
         return await this.userRepository.save(user);
     }
 
+    async edit(id: number) {
+        const user = await this.findNotEmpty(id);
+        user.isEdit = !user.isEdit;
+        return await this.userRepository.save(user);
+    }
+
     async findAll(): Promise<User[]> {
         const {relations} = this;
         return await this.userRepository.find({relations});

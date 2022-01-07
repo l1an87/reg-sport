@@ -5,6 +5,7 @@ export class SanitizeUserDto {
     id: number;
     email: string;
     isBanned: boolean;
+    isEdit: boolean;
     roles?: Role[];
     team?: Team;
 }

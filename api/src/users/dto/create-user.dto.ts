@@ -19,4 +19,7 @@ export class CreateUserDto {
 
     @IsOptional()
     readonly isBanned?: boolean;
+
+    @IsOptional()
+    readonly isEdit?: boolean;
 }

@@ -14,6 +14,10 @@ export class UsersService {
     return api.get(`/users/ban/${id}`).then(i => new UsersEntity(i));
   }
 
+  static edit(id) {
+    return api.get(`/users/edit/${id}`).then(i => new UsersEntity(i));
+  }
+
   static remove(id) {
     return api.del('/users', id);
   }
