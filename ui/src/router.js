@@ -96,6 +96,10 @@ const router = new VueRouter({
       path: '/member-to-sport',
       component: () => import('./modules/member-to-sport/member-to-sport.vue'),
     },
+    {
+      path: '/member-team',
+      component: () => import('./modules/member-team/member-team.vue'),
+    },
   ],
 });
 

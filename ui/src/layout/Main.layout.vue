@@ -106,7 +106,13 @@ export default {
           </v-list-item-icon>
           <v-list-item-content> Участники</v-list-item-content>
         </v-list-item>
-        <v-list-item to="/member-to-sport" v-if="isSport || isTeam">
+        <v-list-item to="/member-to-sport" v-if="isSport">
+          <v-list-item-icon>
+            <v-icon v-text="'mdi-account'"/>
+          </v-list-item-icon>
+          <v-list-item-content> Участники</v-list-item-content>
+        </v-list-item>
+        <v-list-item to="/member-team" v-if="isTeam">
           <v-list-item-icon>
             <v-icon v-text="'mdi-account'"/>
           </v-list-item-icon>

@@ -87,7 +87,7 @@ export default {
       return MembersService
           .findAll()
           .then((data = []) => {
-            this.items = data.filter(i => i.admitted);
+            this.items = data;
             return this.items;
           });
     },
@@ -121,7 +121,7 @@ export default {
     },
   },
   mounted() {
-    if (!this.$store.state.isSport) {
+    if (!this.$store.state.isTeam) {
       this.$router.push('/');
       return;
     }
@@ -138,18 +138,7 @@ export default {
           <v-col cols="6">
             <v-text-field label="Фильтр" v-model="form.search"></v-text-field>
           </v-col>
-          <v-col cols="3" v-if="!$store.state.isTeam">
-            <v-select
-                label="Команда"
-                v-model="form.team"
-                :items="teams"
-                item-text="name"
-                item-value="id"
-                return-object
-                clearable
-            />
-          </v-col>
-          <v-col :cols="$store.state.isTeam ? 6 : 3">
+          <v-col :cols="6">
             <v-select
                 label="Вид спорта"
                 v-model="form.sportType"
