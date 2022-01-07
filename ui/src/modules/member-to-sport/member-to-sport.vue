@@ -87,7 +87,11 @@ export default {
       return MembersService
           .findAll()
           .then((data = []) => {
-            this.items = data.filter(i => i.admitted);
+            if (this.$store.state.isTeam) {
+              this.items = data;
+            } else {
+              this.items = data.filter(i => i.admitted);
+            }
             return this.items;
           });
     },
