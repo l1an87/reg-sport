@@ -14,3 +14,14 @@ server {
     proxy_pass http://api:3001;
   }
 }
+server {
+  listen 80;
+
+  server_name  zima.sistemasport.ru;
+  client_max_body_size 20M;
+
+
+  location / {
+    proxy_pass http://landing:3000;
+  }
+}

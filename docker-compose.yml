@@ -10,6 +10,15 @@ services:
     command: serve -s dist -l 3000
     networks:
       - reg-sport-network
+  landing:
+    build:
+      dockerfile: Dockerfile.prod
+      context: ./landing
+    container_name: reg-sport-landing
+    restart: unless-stopped
+    command: serve -s dist -l 3000
+    networks:
+      - reg-sport-network
   api:
     build:
       dockerfile: Dockerfile.prod
@@ -55,6 +64,7 @@ services:
     depends_on:
       - ui
       - api
+      - landing
     networks:
       - reg-sport-network
 

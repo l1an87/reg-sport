@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="88.31" height="88.686" viewBox="0 0 88.31 88.686">
+  <g id="Сгруппировать_1109" data-name="Сгруппировать 1109" transform="translate(2 -28.166)">
+    <g id="Иконка_Расписание" data-name="Иконка Расписание" transform="translate(0 30.166)">
+      <rect id="Прямоугольник_2" data-name="Прямоугольник 2" width="40.081" height="3.486" transform="translate(22.849 33.682)" fill="#011176"/>
+      <rect id="Прямоугольник_3" data-name="Прямоугольник 3" width="40.081" height="3.486" transform="translate(22.849 42.395)" fill="#011176"/>
+      <rect id="Прямоугольник_4" data-name="Прямоугольник 4" width="40.081" height="3.485" transform="translate(22.849 24.969)" fill="#011176"/>
+      <rect id="Прямоугольник_5" data-name="Прямоугольник 5" width="27.883" height="3.485" transform="translate(22.849 51.109)" fill="#011176"/>
+      <path id="Контур_25" data-name="Контур 25" d="M53.845,146.9c0,.133-.048.127-.129.2L49.2,150.478c-.143.107-.231.179-.376.278l-.815.6a1.427,1.427,0,0,1-.428.282,29.091,29.091,0,0,0,2.069,2.886c.7-.471,3.085-2.313,3.827-2.872l3.33-2.5a1.972,1.972,0,0,1,.521-.35V137.424H53.845Z" transform="translate(12.571 -79.345)" fill="#011176" fill-rule="evenodd"/>
+      <rect id="Прямоугольник_6" data-name="Прямоугольник 6" width="6.97" height="3.486" transform="translate(10.65 33.682)" fill="#011176"/>
+      <rect id="Прямоугольник_7" data-name="Прямоугольник 7" width="6.97" height="3.486" transform="translate(10.65 42.395)" fill="#011176"/>
+      <rect id="Прямоугольник_8" data-name="Прямоугольник 8" width="6.97" height="3.485" transform="translate(10.65 24.969)" fill="#011176"/>
+      <rect id="Прямоугольник_9" data-name="Прямоугольник 9" width="6.97" height="3.485" transform="translate(10.65 51.109)" fill="#011176"/>
+      <path id="Контур_26" data-name="Контур 26" d="M23.1,108.545H85.632a5.442,5.442,0,0,1,5.426,5.426V158.58a19.24,19.24,0,0,0-24.447,18.5H23.1a5.439,5.439,0,0,1-5.426-5.424V113.971A5.44,5.44,0,0,1,23.1,108.545Z" transform="translate(-17.672 -108.545)" fill="rgba(126,126,126,0)" stroke="#011176" stroke-miterlimit="22.926" stroke-width="4" fill-rule="evenodd"/>
+      <path id="Контур_27" data-name="Контур 27" d="M59.683,166.895a16.151,16.151,0,1,0-16.151-16.151A16.183,16.183,0,0,0,59.683,166.895Z" transform="translate(8.475 -82.208)" fill="none" stroke="#fff" stroke-miterlimit="22.926" stroke-width="0.48" fill-rule="evenodd"/>
+      <path id="Контур_28" data-name="Контур 28" d="M59.683,166.895a16.151,16.151,0,1,0-16.151-16.151A16.183,16.183,0,0,0,59.683,166.895Z" transform="translate(8.475 -82.208)" fill="none" stroke="#011176" stroke-miterlimit="22.926" stroke-width="4" fill-rule="evenodd"/>
+      <line id="Линия_1" data-name="Линия 1" x2="73.385" transform="translate(0 13.672)" fill="none" stroke="#011176" stroke-miterlimit="22.926" stroke-width="4"/>
+    </g>
+  </g>
+</svg>

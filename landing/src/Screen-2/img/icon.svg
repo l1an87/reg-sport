@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="142.99" height="113.992" viewBox="0 0 142.99 113.992">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Прямоугольник_432" data-name="Прямоугольник 432" width="142.99" height="113.992" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Сгруппировать_1116" data-name="Сгруппировать 1116" transform="translate(0 0)">
+    <path id="Контур_5411" data-name="Контур 5411" d="M80.812,0V113.992l98.72-57Z" transform="translate(-36.542)" fill="#00c3ff"/>
+    <g id="Сгруппировать_1115" data-name="Сгруппировать 1115" transform="translate(0 0)">
+      <g id="Сгруппировать_1114" data-name="Сгруппировать 1114" clip-path="url(#clip-path)">
+        <line id="Линия_13" data-name="Линия 13" x2="60.843" transform="translate(1.643 74.829)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="6"/>
+        <line id="Линия_14" data-name="Линия 14" x2="60.843" transform="translate(1.643 56.996)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="6"/>
+      </g>
+    </g>
+    <line id="Линия_15" data-name="Линия 15" x2="45.97" transform="translate(16.516 39.162)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="6"/>
+  </g>
+</svg>
