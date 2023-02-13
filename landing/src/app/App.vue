@@ -35,7 +35,7 @@ export default {
   font-style: normal;
   font-weight: 400;
   src: local("Montserrat"),
-  url("./font/Montserrat-Light.ttf") format("woff");
+  url("./font/Montserrat-VariableFont_wght.ttf") format("woff");
 }
 
 @font-face {
@@ -43,7 +43,7 @@ export default {
   font-style: normal;
   font-weight: 700;
   src: local("Montserrat"),
-  url("./font/Montserrat-Black.ttf") format("woff");
+  url("./font/Montserrat-Bold.ttf") format("woff");
 }
 
 body {

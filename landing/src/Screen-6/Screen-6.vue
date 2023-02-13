@@ -17,28 +17,29 @@ export default {
     <div class="wrap">
       <div class="screen-6__row">
         <div class="screen-6__col">
-          <div>Иван Иванов</div>
-          <div>Общие вопросы</div>
-          <div><a href="tel:+79267250577">+7 (926) 725-05-77</a></div>
-          <div><a href="mailto:example@mail.ru">example@mail.ru</a></div>
+          <div>Понамарчук Маргарита</div>
+          <div>Административные вопросы</div>
+          <div><a href="tel:+79055466906">+7 (905) 546-69-06</a></div>
         </div>
         <div class="screen-6__col">
-          <div>Иван Иванов</div>
-          <div>Общие вопросы</div>
-          <div><a href="tel:+79267250577">+7 (926) 725-05-77</a></div>
-          <div><a href="mailto:example@mail.ru">example@mail.ru</a></div>
+          <div>Должкова Ксения</div>
+          <div>Организационные вопросы</div>
+          <div><a href="tel:+79164916411">+7 (916) 491-64-11</a></div>
         </div>
         <div class="screen-6__col">
-          <div>Иван Иванов</div>
-          <div>Общие вопросы</div>
-          <div><a href="tel:+79267250577">+7 (926) 725-05-77</a></div>
-          <div><a href="mailto:example@mail.ru">example@mail.ru</a></div>
+          <div>Юськин Валерий</div>
+          <div>Парковка и трансфер</div>
+          <div><a href="tel:+7905546906">+7 (905) 546-69-06</a></div>
         </div>
         <div class="screen-6__col">
-          <div>Иван Иванов</div>
-          <div>Общие вопросы</div>
-          <div><a href="tel:+79267250577">+7 (926) 725-05-77</a></div>
-          <div><a href="mailto:example@mail.ru">example@mail.ru</a></div>
+          <div>Кобзев Андрей</div>
+          <div>Безопасность</div>
+          <div><a href="tel:+79853988854">+7 (985) 398-88-54</a></div>
+        </div>
+        <div class="screen-6__col">
+          <div>Маркин Андрей</div>
+          <div>Спорт</div>
+          <div><a href="tel:+79166575115">+7 (916) 657-51-15</a></div>
         </div>
       </div>
     </div>
@@ -64,6 +65,7 @@ export default {
     font-weight: bold;
     width: 45%;
     box-sizing: border-box;
+    text-align: center;
   }
 
   a {

@@ -17,20 +17,60 @@ export default {
     <div class="wrap">
       <div class="screen-2__schedule">
         <div class="screen-2__line">
-          <div class="screen-2__time">09:30 - 11:00</div>
-          <div class="screen-2__desc">Сбор гостей</div>
-        </div>
-        <div class="screen-2__line">
           <div class="screen-2__time">11:00 - 11:30</div>
-          <div class="screen-2__desc">Торжественное открытие</div>
+          <div class="screen-2__desc">Церемония открытия</div>
         </div>
         <div class="screen-2__line">
-          <div class="screen-2__time">11:30 - 15:10</div>
-          <div class="screen-2__desc">Соревнования по всем дисциплинам</div>
+          <div class="screen-2__time">11:45 – 12:45</div>
+          <div class="screen-2__desc">Семейная эстафета</div>
         </div>
         <div class="screen-2__line">
-          <div class="screen-2__time">15:10 - 15:40</div>
-          <div class="screen-2__desc">Награждение победителей</div>
+          <div class="screen-2__time">11:45 – 15:30</div>
+          <div class="screen-2__desc">Соревнования по керлингу</div>
+        </div>
+        <div class="screen-2__line">
+          <div class="screen-2__time">12:00 – 15:30</div>
+          <div class="screen-2__desc">Турнир по практической стрельбе</div>
+        </div>
+        <div class="screen-2__line">
+          <div class="screen-2__time">12:00</div>
+          <div class="screen-2__desc">Лыжная гонка жен.<br> классический стиль</div>
+        </div>
+        <div class="screen-2__line">
+          <div class="screen-2__time">12:20</div>
+          <div class="screen-2__desc">Лыжная гонка муж.<br> классический стиль</div>
+        </div>
+        <div class="screen-2__line">
+          <div class="screen-2__time">12:30 – 14:30</div>
+          <div class="screen-2__desc">Соревнования по зимней рыбалке</div>
+        </div>
+        <div class="screen-2__line">
+          <div class="screen-2__time">12:40</div>
+          <div class="screen-2__desc">Лыжная гонка жен.<br> свободный стиль</div>
+        </div>
+        <div class="screen-2__line">
+          <div class="screen-2__time">13:00</div>
+          <div class="screen-2__desc">Лыжная гонка муж. <br> свободный стиль</div>
+        </div>
+        <div class="screen-2__line">
+          <div class="screen-2__time">13:30 – 15:00</div>
+          <div class="screen-2__desc">Лыжная гонка.<br>Спринт муж./жен.</div>
+        </div>
+        <div class="screen-2__line">
+          <div class="screen-2__time">15:00</div>
+          <div class="screen-2__desc">Лыжная гонка.
+            Эстафета
+          </div>
+        </div>
+        <div class="screen-2__line">
+          <div class="screen-2__time">15:30 – 16:00</div>
+          <div class="screen-2__desc">Розыгрыш сертификатов на проживание
+            в Изумрудном лесу и Усадьбе Охотника
+          </div>
+        </div>
+        <div class="screen-2__line">
+          <div class="screen-2__time">16:00 – 16:30</div>
+          <div class="screen-2__desc">Церемония награждения</div>
         </div>
         <div class="screen-2__arrow"></div>
       </div>
@@ -41,20 +81,44 @@ export default {
           ДЛЯ ГОСТЕЙ И БОЛЕЛЬЩИКОВ
         </div>
       </div>
-      <div class="screen-2__txt">
-        - Детская анимация,<br>
-        - Экскурсии в «Сафари парк»,<br>
-        - Выставка вездеходов,<br>
-        - Катание на тюбинге,<br>
-        - Квест по эко-тропе,<br>
-        - Конкурсы от ведущего,<br>
-        - Катание на коньках и лыжах,<br>
-        - Катание на Хаски,<br>
-        - Горячее питание.
-      </div>
-      <div class="screen-2__btn">
-        ПОСМОТРЕТЬ ПОДРОБНОЕ РАСПИСАНИЕ
-      </div>
+      <div class="screen-2__h3">Изумрудный лес</div>
+      <div class="screen-2__h4">Активности на улице:</div>
+      <div class="screen-2__name">11:00 – 15:00 ШКОЛА РЕГБИ</div>
+      <div class="screen-2__desc2">Почувствуй себя настоящим игроком «Зимнего Регби» и занеси свои первые мячи в ворота виртуального соперника.</div>
+      <div class="screen-2__name">10:30 – 15:30 РАБОТА ФОТОЗОНЫ</div>
+      <div class="screen-2__desc2">Экспресс-печать фото с Енотом обнимашкой.</div>
+      <div class="screen-2__name">12:00 – 15:30 ЭКСКУРСИИ В "САФАРИ-ПАРК"</div>
+      <div class="screen-2__desc2">Организован трансфер от ФОК</div>
+      <div class="screen-2__name">13:00 – 15:30 КАТАНИЕ НА КОНЬКАХ</div>
+      <div class="screen-2__desc2">Мастер-классы по элементам фигурного катания, аренда коньков</div>
+      <div class="screen-2__name">12:00 – 15:30 КАТАНИЕ НА ТЮБИНГАХ</div>
+      <div class="screen-2__desc2">.</div>
+      <div class="screen-2__name">12:00 – 15:30 ДЕТСКАЯ ИГРОВАЯ ЗОНА</div>
+      <div class="screen-2__desc2">Анимационные программы для детей</div>
+      <div class="screen-2__name">12:15 -15:15 КАТАНИЕ НА ОЛЕНЯХ</div>
+      <div class="screen-2__desc2">.</div>
+      <div class="screen-2__name">15:15 -15:30 ЗАЕЗД НА ЛЫЖАХ</div>
+      <div class="screen-2__desc2">В РАМКАХ ОНЛАЙН-МАРАФОНА #НАЛЫЖНЕ за каждого участника БФ «Система» переводит средства на реализацию фандрайзингового образовательного проекта «Лифт без отказа»</div>
+      <div class="screen-2__h4">Активности в здании ФОК «Аквамарин»:</div>
+      <div class="screen-2__name">09:30 – 16:00 ПЛАВАНИЕ</div>
+      <div class="screen-2__desc2">Свободное посещение бассейна</div>
+      <div class="screen-2__name">10:00 – 16:00 МАСТЕР-КЛАСС ПО РИСОВАНИЮ</div>
+      <div class="screen-2__desc2">Мастер-классы для детей по русскому народному промыслу родом из Подмосковья, известном во всем мире – гжели</div>
+      <div class="screen-2__name">10:00 – 16:00 ЭКО ИГРА ОТ МТС</div>
+      <div class="screen-2__desc2">Семейная интерактивная экологическая настольная игра</div>
+
+      <div class="screen-2__h3">Усадьба охотника</div>
+      <div class="screen-2__name screen-2--c2">11:30 – 15:30 ВЫСТАВКА ВЕЗДЕХОДОВ</div>
+      <div class="screen-2__desc2">.</div>
+      <div class="screen-2__name screen-2--c2">12:00 – 15:00 КАЗАЧЬЯ ШАШКА</div>
+      <div class="screen-2__desc2">МАСТЕР-КЛАСС ПО ВЛАДЕНИЮ КАЗАЧЬЕЙ ШАШКОЙ Изучение техники Фланкировка, спарринг на шашках</div>
+      <div class="screen-2__name screen-2--c2">12:00 – 15:30 ДЕТСКАЯ АНИМАЦИЯ</div>
+      <div class="screen-2__desc2">Детская анимация с мишкой Умкой, катание на тюбингах</div>
+      <div class="screen-2__name screen-2--c2">12:15 – 15:00 ХОККЕЙ ДЛЯ ДЕТЕЙ </div>
+      <div class="screen-2__desc2">Тренеры обучат ребят технике катания, владения клюшкой и броскам по воротам с различных дистанций и положений.
+        <br> Участникам желательно приезжать со своей экипировкой</div>
+      <div class="screen-2__name screen-2--c2">10:00 – 16:00 МАСТЕР-КЛАСС ПО РИСОВАНИЮ</div>
+      <div class="screen-2__desc2">Мастер-классы для детей по русскому народному промыслу родом из Подмосковья, известном во всем мире – гжели</div>
     </div>
   </div>
 </template>
@@ -93,6 +157,8 @@ export default {
     border-radius: 8px;
     padding: 0 48px;
     margin: 0 16px;
+    justify-content: center;
+    text-align: center;
   }
 
   &__arrow {
@@ -138,6 +204,34 @@ export default {
     justify-content: center;
     background: #00C3FF;
   }
+
+  &__h3 {
+    font-size: 49px;
+    text-align: center;
+    font-weight: 700;
+    margin: 48px 0;
+  }
+
+  &__h4 {
+    font-size: 40px;
+    text-align: left;
+    margin-top: 64px;
+  }
+
+  &__name {
+    font-size: 40px;
+    padding: 4px 8px;
+    margin: 32px 0;
+    background: #F27C00;
+  }
+
+  &__desc2 {
+    font-size: 30px;
+  }
+
+  &--c2 {
+    background: #00595D;
+  }
 }
 
 @media (max-width: 1020px) {
@@ -159,6 +253,18 @@ export default {
   }
   .screen-2__arrow {
     height: 32px;
+  }
+  .screen-2__h3 {
+    font-size: 40px;
+  }
+  .screen-2__h4 {
+    font-size: 32px;
+  }
+  .screen-2__name {
+    font-size: 32px;
+  }
+  .screen-2__desc2 {
+    font-size: 24px;
   }
 }
 
@@ -189,6 +295,20 @@ export default {
   .screen-2__arrow {
     height: 26px;
   }
+  .screen-2__h3 {
+    font-size: 32px;
+    margin: 32px 0;
+  }
+  .screen-2__h4 {
+    font-size: 28px;
+    margin-top: 32px;
+  }
+  .screen-2__name {
+    font-size: 28px;
+  }
+  .screen-2__desc2 {
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -218,6 +338,18 @@ export default {
   }
   .screen-2__arrow {
     height: 20px;
+  }
+  .screen-2__h3 {
+    font-size: 28px;
+  }
+  .screen-2__h4 {
+    font-size: 24px;
+  }
+  .screen-2__name {
+    font-size: 24px;
+  }
+  .screen-2__desc2 {
+    font-size: 16px;
   }
 }
 
@@ -252,6 +384,18 @@ export default {
   }
   .screen-2__arrow {
     height: 16px;
+  }
+  .screen-2__h3 {
+    font-size: 22px;
+  }
+  .screen-2__h4 {
+    font-size: 18px;
+  }
+  .screen-2__name {
+    font-size: 18px;
+  }
+  .screen-2__desc2 {
+    font-size: 12px;
   }
 }
 </style>
