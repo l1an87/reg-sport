@@ -15,7 +15,9 @@ export default {
         text="ПРЯМОЙ ЭФИР"
     />
     <div class="screen-5__link">
-      <img src="./img/link.svg" alt="">
+      <a href="/online.html" target="_blank">
+        <img src="./img/link.svg" alt="">
+      </a>
     </div>
   </div>
 </template>
