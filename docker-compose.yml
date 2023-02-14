@@ -16,7 +16,7 @@ services:
       context: ./landing
     container_name: reg-sport-landing
     restart: unless-stopped
-    command: serve -s dist -l 3000
+    command: npm run serve
     networks:
       - reg-sport-network
   api:
