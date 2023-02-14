@@ -55,6 +55,7 @@ body {
 .app {
   background: url("./img/bg.svg") 50% -650px no-repeat;
   min-height: 300vh;
+  background-attachment: fixed;
 }
 
 .wrap {

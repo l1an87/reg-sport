@@ -74,6 +74,11 @@ export default {
         </a>
       </div>
     </div>
+    <div class="wrap">
+      <div class="screen-3__map-d">
+        <img src="./img/map-d.svg" alt="">
+      </div>
+    </div>
   </div>
 </template>
 <style scoped lang="scss">
@@ -130,6 +135,15 @@ export default {
 
     img {
       max-width: 100%;
+    }
+  }
+
+  &__map-d {
+    text-align: center;
+    padding: 36px;
+
+    img {
+      max-width: 750px;
     }
   }
 

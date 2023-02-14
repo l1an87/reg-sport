@@ -64,8 +64,8 @@ export default {
         </div>
         <div class="screen-2__line">
           <div class="screen-2__time">15:30 – 16:00</div>
-          <div class="screen-2__desc">Розыгрыш сертификатов на проживание
-            в Изумрудном лесу и Усадьбе Охотника
+          <div class="screen-2__desc">Викторина, <br>
+            розыгрыш подарков
           </div>
         </div>
         <div class="screen-2__line">
@@ -111,7 +111,7 @@ export default {
       <div class="screen-2__name screen-2--c2">11:30 – 15:30 ВЫСТАВКА ВЕЗДЕХОДОВ</div>
       <div class="screen-2__desc2">.</div>
       <div class="screen-2__name screen-2--c2">12:00 – 15:00 КАЗАЧЬЯ ШАШКА</div>
-      <div class="screen-2__desc2">МАСТЕР-КЛАСС ПО ВЛАДЕНИЮ КАЗАЧЬЕЙ ШАШКОЙ Изучение техники Фланкировка, спарринг на шашках</div>
+      <div class="screen-2__desc2">Демонстрация умений владения с шашкой, спарринг</div>
       <div class="screen-2__name screen-2--c2">12:00 – 15:30 ДЕТСКАЯ АНИМАЦИЯ</div>
       <div class="screen-2__desc2">Детская анимация с мишкой Умкой, катание на тюбингах</div>
       <div class="screen-2__name screen-2--c2">12:15 – 15:00 ХОККЕЙ ДЛЯ ДЕТЕЙ </div>
