@@ -122,7 +122,7 @@ export default {
   &__map-1 {
     background: #ffffff;
     text-align: center;
-    padding: 36px;
+    padding: 0 36px;
 
     img {
       max-width: 100%;
