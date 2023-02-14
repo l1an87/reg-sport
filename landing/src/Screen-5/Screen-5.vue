@@ -15,7 +15,7 @@ export default {
         text="ПРЯМОЙ ЭФИР"
     />
     <div class="screen-5__link">
-      <a href="http://start.nashaliga.ru/online.html" target="_blank">
+      <a href="/online.html" target="_blank">
         <img src="./img/link.svg" alt="">
       </a>
     </div>
