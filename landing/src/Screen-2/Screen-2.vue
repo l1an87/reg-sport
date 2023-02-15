@@ -83,6 +83,8 @@ export default {
       </div>
       <div class="screen-2__h3">Изумрудный лес</div>
       <div class="screen-2__h4">Активности на улице:</div>
+      <div class="screen-2__name">09:30 – 11:00 СБОР ГОСТЕЙ</div>
+      <div class="screen-2__desc2">Сбор гостей, регистрация спортсменов</div>
       <div class="screen-2__name">11:00 – 15:00 ШКОЛА РЕГБИ</div>
       <div class="screen-2__desc2">Почувствуй себя настоящим игроком «Зимнего Регби» и занеси свои первые мячи в ворота виртуального соперника.</div>
       <div class="screen-2__name">10:30 – 15:30 РАБОТА ФОТОЗОНЫ</div>
@@ -92,15 +94,15 @@ export default {
       <div class="screen-2__name">13:00 – 15:30 КАТАНИЕ НА КОНЬКАХ</div>
       <div class="screen-2__desc2">Мастер-классы по элементам фигурного катания, аренда коньков</div>
       <div class="screen-2__name">12:00 – 15:30 КАТАНИЕ НА ТЮБИНГАХ</div>
-      <div class="screen-2__desc2">.</div>
+      <div class="screen-2__desc2">Анимационные программы для детей</div>
       <div class="screen-2__name">12:00 – 15:30 ДЕТСКАЯ ИГРОВАЯ ЗОНА</div>
       <div class="screen-2__desc2">Анимационные программы для детей</div>
       <div class="screen-2__name">12:15 -15:15 КАТАНИЕ НА ОЛЕНЯХ</div>
-      <div class="screen-2__desc2">.</div>
+<!--      <div class="screen-2__desc2">.</div>-->
       <div class="screen-2__name">15:15 -15:30 ЗАЕЗД НА ЛЫЖАХ</div>
       <div class="screen-2__desc2">В РАМКАХ ОНЛАЙН-МАРАФОНА #НАЛЫЖНЕ за каждого участника БФ «Система» переводит средства на реализацию фандрайзингового образовательного проекта «Лифт без отказа»</div>
       <div class="screen-2__h4">Активности в здании ФОК «Аквамарин»:</div>
-      <div class="screen-2__name">09:30 – 16:00 ПЛАВАНИЕ</div>
+      <div class="screen-2__name">09:30 – 13:00 ПЛАВАНИЕ</div>
       <div class="screen-2__desc2">Свободное посещение бассейна</div>
       <div class="screen-2__name">10:00 – 16:00 МАСТЕР-КЛАСС ПО РИСОВАНИЮ</div>
       <div class="screen-2__desc2">Мастер-классы для детей по русскому народному промыслу родом из Подмосковья, известном во всем мире – гжели</div>
@@ -109,9 +111,9 @@ export default {
 
       <div class="screen-2__h3">Усадьба охотника</div>
       <div class="screen-2__name screen-2--c2">11:30 – 15:30 ВЫСТАВКА ВЕЗДЕХОДОВ</div>
-      <div class="screen-2__desc2">.</div>
+<!--      <div class="screen-2__desc2">.</div>-->
       <div class="screen-2__name screen-2--c2">12:00 – 15:00 КАЗАЧЬЯ ШАШКА</div>
-      <div class="screen-2__desc2">Демонстрация умений владения с шашкой, спарринг</div>
+      <div class="screen-2__desc2">Показательное выступление по рубке шашкой и мастер-класс по крутке шашкой и ее практическому применению</div>
       <div class="screen-2__name screen-2--c2">12:00 – 15:30 ДЕТСКАЯ АНИМАЦИЯ</div>
       <div class="screen-2__desc2">Детская анимация с мишкой Умкой, катание на тюбингах</div>
       <div class="screen-2__name screen-2--c2">12:15 – 15:00 ХОККЕЙ ДЛЯ ДЕТЕЙ </div>
