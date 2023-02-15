@@ -17,6 +17,10 @@ export default {
     <div class="wrap">
       <div class="screen-2__schedule">
         <div class="screen-2__line">
+          <div class="screen-2__time">09:30 – 11:00</div>
+          <div class="screen-2__desc">Сбор гостей, регистрация спортсменов</div>
+        </div>
+        <div class="screen-2__line">
           <div class="screen-2__time">11:00 - 11:30</div>
           <div class="screen-2__desc">Церемония открытия</div>
         </div>
@@ -83,8 +87,6 @@ export default {
       </div>
       <div class="screen-2__h3">Изумрудный лес</div>
       <div class="screen-2__h4">Активности на улице:</div>
-      <div class="screen-2__name">09:30 – 11:00 СБОР ГОСТЕЙ</div>
-      <div class="screen-2__desc2">Сбор гостей, регистрация спортсменов</div>
       <div class="screen-2__name">11:00 – 15:00 ШКОЛА РЕГБИ</div>
       <div class="screen-2__desc2">Почувствуй себя настоящим игроком «Зимнего Регби» и занеси свои первые мячи в ворота виртуального соперника.</div>
       <div class="screen-2__name">10:30 – 15:30 РАБОТА ФОТОЗОНЫ</div>
