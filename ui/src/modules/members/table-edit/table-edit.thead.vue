@@ -39,9 +39,9 @@ export default {
     <th class="text-center members-table--border-bottom" colspan="3">
       Мед. допуск
     </th>
-    <th class="text-center" rowspan="2">
-      Фото
-    </th>
+<!--    <th class="text-center" rowspan="2">-->
+<!--      Фото-->
+<!--    </th>-->
     <th class="text-center" rowspan="2">
       Допущен ГСК
     </th>

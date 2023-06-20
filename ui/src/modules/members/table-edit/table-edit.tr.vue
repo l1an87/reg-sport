@@ -189,14 +189,14 @@ export default {
         :name.sync="form.medicalCertificateName"
         :url="form.medicalCertificateUrl"
     />
-    <TdDownload
-        :hide="!!add"
-        :disabled="isDisabled"
-        :url-add="`/members/add-photo/${form.id}`"
-        :id.sync="form.photoId"
-        :name.sync="form.photoName"
-        :url="form.photoUrl"
-    />
+<!--    <TdDownload-->
+<!--        :hide="!!add"-->
+<!--        :disabled="isDisabled"-->
+<!--        :url-add="`/members/add-photo/${form.id}`"-->
+<!--        :id.sync="form.photoId"-->
+<!--        :name.sync="form.photoName"-->
+<!--        :url="form.photoUrl"-->
+<!--    />-->
     <TdCheck
         :hide="!!add"
         v-model="form.admitted"
