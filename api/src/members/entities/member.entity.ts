@@ -99,6 +99,11 @@ export class Member {
     })
     photoName?: string;
 
+    @Column({
+        default: '',
+    })
+    division: string;
+
 
     @ManyToMany(() => SportType)
     @JoinTable()
