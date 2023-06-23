@@ -34,6 +34,9 @@ export class UpdateMemberDto {
     readonly admitted?: boolean;
 
     @IsOptional()
+    readonly division?: string;
+
+    @IsOptional()
     readonly sportTypes?: SportType[];
 
     @IsOptional()

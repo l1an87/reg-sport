@@ -19,6 +19,7 @@ export class MembersEntity {
   team;
   birthdayName = '';
   inJobName = '';
+  division = '';
 
   constructor(data) {
     this.id = data.id || null;
@@ -37,6 +38,7 @@ export class MembersEntity {
     this.photoName = data.photoName || '';
     this.sportTypes = data.sportTypes || [];
     this.team = data.team || null;
+    this.division = data.division || '';
 
     this.birthdayName = isoToString(this.birthday);
     this.inJobName = isoToString(this.inJob);

@@ -48,6 +48,11 @@ export default {
         value: "sportTypes",
       },
       {
+        text: "Дивизион",
+        value: "division",
+        width: 90,
+      },
+      {
         text: "Мед допуск",
         value: "medicalType",
         width: 190,
