@@ -36,9 +36,6 @@ export default {
     <th class="text-center" rowspan="2">
       Вид спорта
     </th>
-    <th class="text-center" rowspan="2">
-      Дивизион
-    </th>
     <th class="text-center members-table--border-bottom" colspan="3">
       Мед. допуск
     </th>

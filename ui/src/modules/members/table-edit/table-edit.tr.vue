@@ -169,10 +169,6 @@ export default {
         chips
         multiple
     />
-    <TdText
-        v-model="form.division"
-        :disabled="isDisabled"
-    />
     <TdCheck
         v-model="form.medicalType"
         :disabled="isDisabled"

@@ -14,7 +14,6 @@ export default {
     <col span="2" width="80">
     <col span="1">
     <col span="1" width="140">
-    <col span="1" width="80">
     <col span="2" width="41">
 <!--    <col span="2" width="38">-->
     <col span="1" width="50">

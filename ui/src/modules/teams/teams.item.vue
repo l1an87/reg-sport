@@ -153,6 +153,7 @@ export default {
             <v-text-field
                 label="Дивизион"
                 v-model="form.division"
+                :disabled="!$store.state.isAdmin"
             >
             </v-text-field>
           </v-col>
