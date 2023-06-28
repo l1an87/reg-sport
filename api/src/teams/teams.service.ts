@@ -49,7 +49,8 @@ export class TeamsService {
 
         return await this.teamRepository.save({
             ...team,
-            ...dto,
+            division: dto.division,
+            name: dto.name,
         });
     }
 
