@@ -153,7 +153,6 @@ export default {
             <v-text-field
                 label="Дивизион"
                 v-model="form.division"
-                :readonly="!!id"
             >
             </v-text-field>
           </v-col>
