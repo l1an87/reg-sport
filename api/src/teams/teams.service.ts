@@ -33,6 +33,7 @@ export class TeamsService {
 
         const team = this.teamRepository.create({
             name: dto.name,
+            division: dto.division || '',
             user: {
                 email: dto.email,
                 password: await this.usersService.hashPassword(dto.password),

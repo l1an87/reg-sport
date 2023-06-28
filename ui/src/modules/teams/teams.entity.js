@@ -6,6 +6,7 @@ export class TeamsEntity {
   user;
   fileId;
   fileName;
+  division;
 
   constructor(data = {}) {
     this.id = data.id || null;
@@ -13,6 +14,7 @@ export class TeamsEntity {
     this.user = data.user ? new UsersEntity(data.user) : null;
     this.medicalCertificateId = data.medicalCertificateId || 0;
     this.medicalCertificateName = data.medicalCertificateName || '';
+    this.division = data.division || '';
   }
 
   get value() {

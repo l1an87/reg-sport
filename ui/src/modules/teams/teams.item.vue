@@ -17,6 +17,7 @@ export default {
       name: '',
       email: '',
       password: '',
+      division: '',
       userId: 0,
       medicalCertificateId: 0,
       medicalCertificateName: '',
@@ -41,6 +42,7 @@ export default {
       form.medicalCertificateId = data.medicalCertificateId || '';
       form.medicalCertificateName = data.medicalCertificateName || '';
       form.medicalCertificateUrl = data.medicalCertificateUrl || '';
+      form.division = data.division || '';
     },
     handlerGet() {
       if (!+this.id) {
@@ -117,7 +119,7 @@ export default {
           lazy-validation
       >
         <v-row>
-          <v-col cols="4">
+          <v-col cols="3">
             <v-text-field
                 label="Название"
                 v-model="form.name"
@@ -126,7 +128,7 @@ export default {
                 :disabled="!$store.state.isAdmin"
             ></v-text-field>
           </v-col>
-          <v-col cols="4">
+          <v-col cols="3">
             <v-text-field
                 label="Email"
                 v-model="form.email"
@@ -145,6 +147,14 @@ export default {
               >
                 <v-icon v-text="'mdi-pencil'" small/>
               </v-btn>
+            </v-text-field>
+          </v-col>
+          <v-col cols="2">
+            <v-text-field
+                label="Дивизион"
+                v-model="form.division"
+                :readonly="!!id"
+            >
             </v-text-field>
           </v-col>
           <v-col cols="4" v-if="!id">

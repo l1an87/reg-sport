@@ -27,4 +27,9 @@ export class Team {
         default: '',
     })
     medicalCertificateName?: string;
+
+    @Column({
+        default: '',
+    })
+    division?: string;
 }

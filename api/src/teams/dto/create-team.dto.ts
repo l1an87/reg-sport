@@ -1,4 +1,4 @@
-import {IsEmail, IsString, MinLength} from "class-validator";
+import {IsEmail, IsOptional, IsString, MinLength} from "class-validator";
 
 export class CreateTeamDto {
     @MinLength(3, {message: 'Название: не менее 3'})
@@ -12,4 +12,7 @@ export class CreateTeamDto {
     @MinLength(8, {message:'Пароль: не менее 8'})
     @IsString({message:'Пароль: должен быть строкой'})
     readonly password: string;
+
+    @IsOptional()
+    readonly division?: string;
 }
