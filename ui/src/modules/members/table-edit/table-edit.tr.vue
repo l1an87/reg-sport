@@ -86,16 +86,27 @@ export default {
           });
     },
     handlerCreate() {
-      const {
-        id,
-        ...form
-      } = this.form;
       return MembersService
-          .create(form);
+          .create(this.getData());
     },
     handlerUpdate() {
       return MembersService
-          .update(this.item.id, this.form);
+          .update(this.item.id, this.getData());
+    },
+    getData() {
+      const form = {
+        ...this.form,
+      };
+      if (!form.inJob) {
+        delete form.inJob;
+      }
+      if (!form.position) {
+        delete form.position;
+      }
+      if (!form.id) {
+        delete form.id;
+      }
+      return form;
     },
     handlerCancel() {
       this.setForm();
@@ -189,14 +200,14 @@ export default {
         :name.sync="form.medicalCertificateName"
         :url="form.medicalCertificateUrl"
     />
-<!--    <TdDownload-->
-<!--        :hide="!!add"-->
-<!--        :disabled="isDisabled"-->
-<!--        :url-add="`/members/add-photo/${form.id}`"-->
-<!--        :id.sync="form.photoId"-->
-<!--        :name.sync="form.photoName"-->
-<!--        :url="form.photoUrl"-->
-<!--    />-->
+    <!--    <TdDownload-->
+    <!--        :hide="!!add"-->
+    <!--        :disabled="isDisabled"-->
+    <!--        :url-add="`/members/add-photo/${form.id}`"-->
+    <!--        :id.sync="form.photoId"-->
+    <!--        :name.sync="form.photoName"-->
+    <!--        :url="form.photoUrl"-->
+    <!--    />-->
     <TdCheck
         :hide="!!add"
         v-model="form.admitted"
