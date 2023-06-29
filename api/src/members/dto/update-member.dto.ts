@@ -21,9 +21,11 @@ export class UpdateMemberDto {
     @IsISO8601({}, {message: 'День рождения: должно быть датой'})
     readonly birthday?: Date;
 
+    @IsOptional()
     @IsISO8601({}, {message: 'Поступил на работу: должно быть датой'})
     readonly inJob?: Date;
 
+    @IsOptional()
     @IsString({message: 'Должность: должено быть строкой'})
     readonly position?: string;
 
