@@ -29,7 +29,12 @@ server {
 
 
   location / {
-    return 301 https://zima.sistemasport.ru$request_uri;
+    proxy_pass http://ui:3000;
+  }
+
+  location /api {
+    rewrite ^/api/(.*) /$1 break;
+    proxy_pass http://api:3001;
   }
 }
 
