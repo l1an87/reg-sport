@@ -31,7 +31,7 @@ export default {
   }),
   computed: {
     disabledAll() {
-      return false;
+      return !this.$store.state.isEdit;
     },
     isEdit() {
       return (this.form?.id || 0) === this.edit;
