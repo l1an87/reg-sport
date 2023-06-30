@@ -6,9 +6,9 @@ server {
 
   client_max_body_size 20M;
 
-  ssl_certificate /etc/letsencrypt/live/nashaliga.ru/nashaliga.ru_le2.crtca;
-  ssl_certificate_key /etc/letsencrypt/live/nashaliga.ru/nashaliga.ru_le2.key;
-  ssl_trusted_certificate /etc/letsencrypt/live/nashaliga.ru/nashaliga.ru_le2.ca;
+  ssl_certificate /etc/letsencrypt/live/nashaliga.ru/nashaliga.ru_le3.crtca;
+  ssl_certificate_key /etc/letsencrypt/live/nashaliga.ru/nashaliga.ru_le3.key;
+  ssl_trusted_certificate /etc/letsencrypt/live/nashaliga.ru/nashaliga.ru_le3.ca;
 
 
   location / {
