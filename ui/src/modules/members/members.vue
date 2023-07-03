@@ -214,7 +214,6 @@ export default {
               hide-details
               class="pt-0 mt-0"
               dense
-              :disabled="disabledAdmitted(item)"
               @change="handlerAdmitted(item)"
           ></v-checkbox>
         </template>
