@@ -114,7 +114,7 @@ export class ReportTeam {
             .style(style.team);
         ws
             .cell(row, colStart + 1, row, colEnd, true)
-            .string(`"${team.name}"`)
+            .string(`"${team.name} ${team.division || ''} ${team.division ? 'дивизион' : ''}"`)
             .style(style.team);
     }
 
