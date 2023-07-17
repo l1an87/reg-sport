@@ -29,7 +29,7 @@ export default {
   }),
   computed: {
     disabled() {
-      return !this.$store.state.isEdit;
+      return !this.$store.state.isAdmin;
     },
   },
   methods: {
