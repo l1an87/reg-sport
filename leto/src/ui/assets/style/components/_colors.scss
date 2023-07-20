@@ -1,0 +1,56 @@
+.color-primary {
+	color: var(--ui-color-primary);
+}
+
+.color-error {
+	color: var(--ui-color-error);
+	--color: var(--ui-color-error);
+}
+
+.color-success {
+	color: var(--ui-color-success);
+}
+
+.color-warning {
+	color: var(--ui-color-warning);
+}
+
+.color-focus {
+	color: var(--ui-color-focus);
+}
+
+.color-text {
+	color: var(--ui-color-text);
+}
+
+@for $i from 0 through 10 {
+	.color-gray-#{$i} {
+		color: var(--ui-color-gray-#{$i});
+	}
+}
+
+.bg-primary {
+	background-color: var(--ui-color-primary);
+}
+
+.bg-error {
+	background-color: var(--ui-color-error);
+}
+
+.bg-success {
+	background-color: var(--ui-color-success);
+}
+
+.bg-warning {
+	background-color: var(--ui-color-warning);
+}
+
+.bg-focus {
+	background-color: var(--ui-color-focus);
+}
+
+@for $i from 0 through 10 {
+	.bg-gray-#{$i} {
+		background-color: var(--ui-color-gray-#{$i});
+	}
+}

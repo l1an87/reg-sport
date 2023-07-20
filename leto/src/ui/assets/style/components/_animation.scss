@@ -1,0 +1,312 @@
+@keyframes ripple {
+	to {
+		transform: scale(4);
+		opacity: 0;
+	}
+}
+
+@keyframes slideUp {
+	to {
+		height: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+}
+
+@keyframes slideDown {
+	from {
+		height: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeOut {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+@keyframes flipIn {
+	from {
+		opacity: 0;
+		transform: scaleY(0);
+	}
+	to {
+		opacity: 1;
+		transform: scaleY(1);
+	}
+}
+
+@keyframes flipOut {
+	from {
+		opacity: 1;
+		transform: scaleY(1);
+	}
+	to {
+		opacity: 0;
+		transform: scaleY(0);
+	}
+}
+
+@keyframes zoomIn {
+	from {
+		opacity: 0;
+		transform: scale3d(.95, .95, .95);
+	}
+	50% {
+		opacity: 1;
+	}
+}
+
+
+@keyframes zoomOut {
+	from {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+		transform: scale3d(.95, .95, .95);
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+@keyframes slideInRight {
+	from {
+		transform: translate3d(100%, 0, 0);
+		visibility: visible;
+	}
+	to {
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+@keyframes slideInLeft {
+	from {
+		transform: translate3d(-100%, 0, 0);
+		visibility: visible;
+	}
+	to {
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+@keyframes slideInDown {
+	from {
+		transform: translate3d(0, -100%, 0);
+		visibility: visible;
+	}
+	to {
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+@keyframes slideOutLeft {
+	from {
+		transform: translate3d(0, 0, 0);
+	}
+	to {
+		visibility: hidden;
+		transform: translate3d(-100%, 0, 0);
+	}
+}
+
+@keyframes slideOutRight {
+	from {
+		transform: translate3d(0, 0, 0);
+	}
+	to {
+		visibility: hidden;
+		transform: translate3d(100%, 0, 0);
+	}
+}
+
+@keyframes slideOutUp {
+	from {
+		transform: translate3d(0, 0, 0);
+	}
+	to {
+		visibility: hidden;
+		transform: translate3d(0, -100%, 0);
+	}
+}
+
+@keyframes rotate {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes pulse {
+	from {
+		transform: scale3d(1, 1, 1);
+	}
+	50% {
+		transform: scale3d(1.03, 1.03, 1.03);
+	}
+	to {
+		transform: scale3d(1, 1, 1);
+	}
+}
+
+@keyframes pulse-large {
+	from {
+		transform: scale3d(1, 1, 1);
+	}
+	50% {
+		transform: scale3d(1.2, 1.2, 1.2);
+	}
+	to {
+		transform: scale3d(1, 1, 1);
+	}
+}
+
+@keyframes shake {
+	15% {
+		transform: translateX(0.5rem);
+	}
+	30% {
+		transform: translateX(-0.4rem);
+	}
+	45% {
+		transform: translateX(0.3rem);
+	}
+	60% {
+		transform: translateX(-0.2rem);
+	}
+	75% {
+		transform: translateX(0.1rem);
+	}
+	90% {
+		transform: translateX(0);
+	}
+	90% {
+		transform: translateX(0);
+	}
+}
+
+@keyframes transformToScale1 {
+	to {
+		transform: scale(1);
+	}
+}
+
+.fadeIn {
+	animation: fadeIn var(--ui-transition-small);
+}
+
+.fadeOut {
+	animation: fadeOut var(--ui-transition-small);
+}
+
+.zoomIn {
+	animation: zoomIn var(--ui-transition-small);
+}
+
+.zoomOut {
+	animation: zoomOut var(--ui-transition);
+}
+
+.slideInRight {
+	animation: slideInRight var(--ui-transition);
+}
+
+.slideInLeft {
+	animation: slideInLeft var(--ui-transition);
+}
+
+.slideInDown {
+	animation: slideInDown var(--ui-transition);
+}
+
+.slideOutLeft {
+	animation: slideOutLeft var(--ui-transition);
+}
+
+.slideOutRight {
+	animation: slideOutRight var(--ui-transition);
+}
+
+.slideOutUp {
+	animation: slideOutUp var(--ui-transition);
+}
+
+.slideUp {
+	overflow: hidden;
+	animation: slideUp var(--ui-transition-small) ease-in-out;
+}
+
+.slideDown {
+	overflow: hidden;
+	animation: slideDown 80ms ease-in-out;
+}
+
+.flipIn {
+	animation: flipIn var(--ui-transition-small) cubic-bezier(0.5, -0.5, 0.5, 1.5)
+}
+
+.flipOut {
+	animation: flipOut var(--ui-transition) cubic-bezier(0.5, -0.5, 0.5, 1.5)
+}
+
+.rotate {
+	animation: rotate var(--ui-transition);
+}
+
+.pulse {
+	animation: pulse var(--ui-transition-small) 2;
+}
+
+.pulse-large {
+	animation: pulse-large var(--ui-transition-small) 2;
+}
+
+.shake {
+	animation: shake var(--ui-transition);
+}
+
+.infinite {
+	animation-iteration-count: infinite;
+}
+
+span.ripple {
+	//z-index: 0;
+	pointer-events: none;
+	overflow: hidden;
+	border-radius: inherit;
+	will-change: opacity, transform;
+	z-index: 202;
+
+	&, .animation {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		top: 0;
+	}
+
+	.animation {
+		border-radius: 50%;
+		background-color: currentColor;
+		opacity: .2;
+		transform: scale(0);
+		animation: ripple var(--ui-transition-ripple, 600ms) ease-in;
+	}
+}

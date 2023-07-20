@@ -1,0 +1,31 @@
+@mixin background-state() {
+
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		opacity: .15;
+		z-index: 201;
+		pointer-events: none;
+		transition-duration: var(--ui-transition-small);
+		border-radius: inherit;
+		background: var(--state-color, none)
+	}
+
+
+	&:hover:after {
+		--state-color: currentColor;
+	}
+
+	&.active-menu:after {
+		--state-color: currentColor;
+	}
+
+	&.router-link-active:after {
+		--state-color: var(--ui-color-primary);
+	}
+
+}

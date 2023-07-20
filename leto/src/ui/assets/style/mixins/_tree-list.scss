@@ -1,0 +1,33 @@
+@mixin tree-list() {
+
+	list-style-type: none;
+
+	li {
+		position: relative;
+
+		&:before, &:after {
+			content: '';
+			position: absolute;
+			border-left: 1px solid #cfd8dc;
+			pointer-events: none;
+			top: 0;
+			left: calc(var(--ui-tree-list-left, - .5px));
+			width: var(--ui-tree-list-width, 12px);
+			height: calc(var(--ui-tree-list-height, 56px) / 2 + .5px);
+			z-index: var(--ui-z-over-content, 100);
+		}
+
+
+		&:before {
+			border-bottom: 1px solid #cfd8dc;
+		}
+
+		&:after {
+			height: 100%;
+		}
+
+		&:last-child:after {
+			display: none;
+		}
+	}
+}

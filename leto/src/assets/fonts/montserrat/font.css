@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+
+@font-face {
+	font-family: Montserrat;
+	font-weight: 700;
+	src: local('Montserrat Bold'), local('Montserrat-Bold'), url('./Montserrat-Bold.woff2');
+}

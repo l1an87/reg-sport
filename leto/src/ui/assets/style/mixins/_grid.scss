@@ -1,0 +1,120 @@
+// Make Row
+@mixin grid-row {
+	@include flex;
+	@include flex-items-row;
+	@include flex-items-wrap;
+}
+
+// Generate Columns
+@mixin generate-grid-columns {
+
+	.col-auto {
+		flex: 1;
+	}
+
+	@for $i from 1 through $grid-columns {
+		.col-#{$i} {
+			width: calc(100% / $grid-columns * $i);
+		}
+		.offset-#{$i} {
+			$width: calc(100% / $grid-columns * $i);
+			margin-left: $width;
+		}
+	}
+
+	// Breakpoint LG
+	@include breakpoint(lg) {
+		@for $i from 1 through $grid-columns {
+			.col-lg-#{$i} {
+				width: calc(100% / $grid-columns * $i);
+			}
+		}
+	}
+
+	// Breakpoint MD
+	@include breakpoint(md) {
+		@for $i from 1 through $grid-columns {
+			.col-md-#{$i} {
+				width: calc(100% / $grid-columns * $i);
+			}
+		}
+	}
+
+	// Breakpoint SM
+	@include breakpoint(sm) {
+		@for $i from 1 through $grid-columns {
+			.col-sm-#{$i} {
+				width: calc(100% / $grid-columns * $i);
+			}
+		}
+	}
+
+	.gutters {
+
+		@for $i from 1 through $grid-columns {
+			$width: calc(100% / $grid-columns * $i);
+
+			> .col-#{$i} {
+				width: calc(#{$width} - var(--ui-grid-gutter));
+			}
+
+			> .offset-#{$i} {
+				margin-left: calc(#{$width} + var(--ui-grid-gutter));
+			}
+		}
+
+		// breakpoint MD
+		@include breakpoint(md) {
+			@for $i from 1 through $grid-columns {
+				$width: calc(100% / $grid-columns * $i);
+
+				> .col-md-#{$i} {
+					width: calc(#{$width} - var(--ui-grid-gutter));
+				}
+			}
+		}
+
+		// breakpoint SM
+		@include breakpoint(sm) {
+			@for $i from 1 through $grid-columns {
+				$width: calc(100% / $grid-columns * $i);
+
+				> .col-sm-#{$i} {
+					width: calc(#{$width} - var(--ui-grid-gutter));
+				}
+			}
+		}
+
+		// breakpoint LG
+		@include breakpoint(lg) {
+			@for $i from 1 through $grid-columns {
+				$width: calc(100% / $grid-columns * $i);
+
+				> .col-lg-#{$i} {
+					width: calc(#{$width} - var(--ui-grid-gutter));
+				}
+			}
+		}
+	}
+}
+
+// Grid Media Columns
+@mixin grid-media-columns($num) {
+	-webkit-column-count: $num;
+	-moz-column-count: $num;
+	column-count: $num;
+	-webkit-column-gap: $grid-gutter;
+	-moz-column-gap: $grid-gutter;
+	column-gap: $grid-gutter;
+
+	& > div {
+		display: inline-block;
+		width: 100%;
+	}
+
+	@include breakpoint(sm) {
+		-webkit-column-count: 1;
+		-moz-column-count: 1;
+		column-count: 1;
+	}
+}

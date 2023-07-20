@@ -1,0 +1,98 @@
+// display
+@mixin flex {
+	display: flex;
+}
+
+// basis
+@mixin flex-basis($width) {
+	flex-basis: $width;
+}
+
+// tabs wrap
+@mixin flex-items-wrap {
+	flex-wrap: wrap;
+}
+
+// tabs nowrap
+@mixin flex-items-nowrap {
+	flex-wrap: nowrap;
+}
+
+// tabs row
+@mixin flex-items-row {
+	flex-direction: row;
+}
+
+// tabs columns
+@mixin flex-items-column {
+	flex-direction: column;
+}
+
+// tabs left
+@mixin flex-items-left {
+	justify-content: flex-start;
+}
+
+// tabs right
+@mixin flex-items-right {
+	justify-content: flex-end;
+}
+
+// tabs center
+@mixin flex-items-center {
+	justify-content: center;
+}
+
+// tabs between
+@mixin flex-items-space-between {
+	justify-content: space-between;
+}
+
+// tabs around
+@mixin flex-items-space-around {
+	justify-content: space-around;
+}
+
+// tabs vertical top
+@mixin flex-items-top {
+	align-items: flex-start;
+}
+
+// tabs vertical middle
+@mixin flex-items-middle {
+	align-items: center;
+}
+
+// tabs vertical bottom
+@mixin flex-items-bottom {
+	align-items: flex-end;
+}
+
+// item grow
+@mixin flex-item-grow($grow: 0) {
+	flex-grow: $grow;
+}
+
+// item auto
+@mixin flex-item-auto {
+	flex: auto;
+}
+
+// item one
+@mixin flex-item-one {
+	flex: 1;
+}
+
+// item shrink
+@mixin flex-item-shrink($num: 0) {
+	flex-shrink: $num;
+}
+
+// item width
+@mixin flex-item-width($width) {
+	flex: 0 0 $width;
+
+	@include breakpoint(sm) {
+		flex: 0 0 100% !important;
+	}
+}
