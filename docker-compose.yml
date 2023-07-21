@@ -73,6 +73,7 @@ services:
       - ui
       - api
       - landing
+      - leto
     networks:
       - reg-sport-network
 
