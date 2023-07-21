@@ -25,7 +25,7 @@ services:
       context: ./leto
     container_name: reg-sport-leto
     restart: unless-stopped
-    command: npm run dev
+    command: serve dist -l 3000
     networks:
       - reg-sport-network
   api:
