@@ -50,7 +50,7 @@
 					</div>
 
 					<div class="cell white text-center">
-						<span>СОК "Аквамарин"</span>
+						<span>ФОК "Аквамарин"</span>
 					</div>
 
           <div class="cell outline">
