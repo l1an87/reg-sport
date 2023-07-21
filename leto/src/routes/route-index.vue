@@ -36,7 +36,7 @@ export default defineComponent({
 		RouteIndexStream
 	},
 	created() {
-		useSeoMeta({title: 'Hello world'});
+		useSeoMeta({title: 'XIX летняя спартакиада'});
 	}
 })
 </script>

@@ -53,9 +53,14 @@
 						<span>СОК "Аквамарин"</span>
 					</div>
 
+          <div class="cell outline">
+            <span class="time">10:00 – 15:30</span>
+            <span class="small">Плавание, волейбол</span>
+          </div>
+
 					<div class="cell outline">
 						<span class="time">11:30 – 15:30</span>
-						<span class="small">Плавание, настольный теннис, стритбол, волейбол, теннис, бадминтон, гиревой спорт</span>
+						<span class="small">Настольный теннис, стритбол, теннис, бадминтон, гиревой спорт</span>
 					</div>
 
 					<div class="cell outline">
